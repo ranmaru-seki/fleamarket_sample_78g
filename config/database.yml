@@ -11,7 +11,7 @@
 #
 default: &default
   adapter: mysql2
-  encoding: utf8mb4
+  encoding: utf8
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: root
   password:
@@ -19,14 +19,14 @@ default: &default
 
 development:
   <<: *default
-  database: fleamarket_sample_78g_development
+  database: dep_test_development
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: fleamarket_sample_78g_test
+  database: dep_test_test
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -49,6 +49,7 @@ test:
 #
 production:
   <<: *default
-  database: fleamarket_sample_78g_production
-  username: fleamarket_sample_78g
-  password: <%= ENV['FLEAMARKET_SAMPLE_78G_DATABASE_PASSWORD'] %>
+  database: dep_test_production
+  username: root            #rootに変更
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
