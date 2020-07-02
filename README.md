@@ -37,10 +37,9 @@ Things you may want to cover:
 |furigana_family_name|string|null: false|
 |furigana_first_name|string|null: false|
 |birthday|date|null: false|
-|creditcard_id|integer|null: false, foreign_key: true|
 
 ### Association
-- belongs_to :creditcard
+- has_one :creditcard
 - has_many :products
 - has_many :deliveries
 - has_many :orders
@@ -54,13 +53,12 @@ Things you may want to cover:
 |for_first_name|string|null: false|
 |for_furigana_family_name|string|null: false|
 |for_furigana_first_name|string|null: false|
-|address|string|null: false|
 |postcode|integer|null: false|
-|prefecture|string|null: false|
+|prefecture_id(acitve_hash)|integer|null: false|
 |city|string|null: false|
 |city_number|integer|null: false|
 |remarks|string||
-|phone_number|integer||
+|phone_number|string||
 |user_id|integer|null: false,foreign_key: true|
 
 ### Association
@@ -96,14 +94,14 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|item|string|null: false, add_index: ture|
+|name|string|null: false, add_index: ture|
 |item_info|text|null: false|
 |brand|string|add_index: ture|
-|status|string|null: false|
+|status_id(acitve_hash)|integer|null: false|
 |size|string||
-|delivery|string|null: false|
-|region|string|null: false|
-|days|string|null: false|
+|delivery_id(acitve_hash)|integer|null: false|
+|region_id(acitve_hash)|integer|null: false|
+|days_id(acitve_hash)|integer|null: false|
 |price|integer|null: false|
 |category_id|integer|null: false, foreign_key: true|
 |user_id|integer|null: false, foreign_key: true|
@@ -120,7 +118,7 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |parent_id|integer||
-|name|string|add_index: ture|
+|name_id(acitve_hash)|integer|add_index: ture|
 
 ### Association
 - has_many :products
