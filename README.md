@@ -81,8 +81,8 @@ Things you may want to cover:
 ### order
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null: false|
-|product_id|integer|null: false|
+|user_id|integer|null: false, foreign_key: true|
+|product_id|integer|null: false, foreign_key: true|
 |order_date|date|null: false|
 
 ### Association
@@ -118,7 +118,7 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |parent_id|integer||
-|name_id(acitve_hash)|integer|add_index: ture|
+|name|string|add_index: ture|
 
 ### Association
 - has_many :products
