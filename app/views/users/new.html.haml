@@ -1,6 +1,6 @@
 .Single-container
   .Single-header
-    %img.logo{alt: "FURIMA", src: "/logo.png"}
+    = image_tag("/logo.png", {class: "logo"})
     %nav.Signup-bar
       %ol.clearfix
         %li.active
@@ -16,7 +16,7 @@
     .Single__main
       .Single__main__container 会員情報入力
       .Form-container{action: "#", method: "POST", novalidate: "novalidate"}
-        %input{name: "#", type: "hidden", value: ""}/
+        %input{name: "#", type: "hidden", value: ""}
         .Form
           .Form__group
             %label{for: "nickname"} ニックネーム
@@ -28,7 +28,7 @@
             %span.form-require 必須
             %br
             %input.input-default{name: "email", placeholder: "PC・携帯どちらでも可", type: "email", value: ""}
-          %input{name: "#", type: "hidden", value: ""}/
+          %input{name: "#", type: "hidden", value: ""}
           .Form__group.form-password-revelation
             %label{for: "password"} パスワード
             %span.form-require 必須
@@ -243,7 +243,4 @@
             %input{name: "birthday", type: "hidden", value: "00"}
         .l-single-content
           %button.btn-default{type: "submit"} 次へ進む
-  %footer.single-footer
-    %a.single-footer-logo{href: "#"}
-      %img.logo-white{alt: "furima", src: "/logo-white.png"}
-    .small © FURIMA
+  = render "users_footer"

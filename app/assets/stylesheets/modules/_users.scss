@@ -199,10 +199,13 @@
         height: 60px;
       }
     }
-    .small{
+    .small{      
       display: flex;
       justify-content: center;
-      color: #888;
+      .small-font{
+        color: #888;
+        padding-bottom: 60px;
+      }
     }
   }
 }

@@ -1,6 +1,6 @@
 .Single-container
   .Single-header
-    %img.logo{alt: "FURIMA", src: "/logo.png"}
+    = image_tag("/logo.png", {class: "logo"})
     %nav.Signup-bar
       %ol.clearfix
         %li.active
@@ -65,7 +65,4 @@
             .has-error-text ※ 本人情報は正しく入力してください。
         .l-single-content
           %button.btn-default{type: "submit"} 登録する
-  %footer.single-footer
-    %a.single-footer-logo{href: "#"}
-      %img.logo-white{alt: "furima", src: "/logo-white.png"}/
-    .small © FURIMA
+  = render "users_footer"
