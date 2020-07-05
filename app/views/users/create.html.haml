@@ -1,0 +1,27 @@
+.Single-container
+  .Single-header
+    = image_tag("/logo.png", {class: "logo"})
+    %nav.Signup-bar
+      %ol.clearfix
+        %li.active
+          会員情報
+          .progress-status
+        %li.active
+          商品送付先住所情報
+          .progress-status
+        %li.active
+          完了
+          .progress-status
+  .Single
+    .Single__main
+      .Single__main__container 会員登録完了
+      .Form-container
+        .Form
+          .Form__complete
+            ありがとうございます。
+            %br
+            会員登録が完了しました。
+        .l-single-content
+          = link_to("トップページ", root_path, {class: "nav-link"})
+        = image_tag("/material/pict/bg-mainVisual-pict_pc.jpg", {class: "image"})
+  = render "users_footer"
