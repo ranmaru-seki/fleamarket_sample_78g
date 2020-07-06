@@ -1,0 +1,20 @@
+.topbar
+  .topbar__contents
+    .topbar__top
+      = image_tag "/material/logo/logo.png", class: "topbar__top--icon"
+      .topbar__top--search
+        = form_with class: "Form", local: true do |f|
+          = f.text_field :keyword, class: 'Form__input', placeholder: 'キーワードから探す'
+          = button_tag type: 'submit', class: "Form__submit" do
+            = image_tag "/material/icon/icon-search 1.png", class: "search--icon"
+    .topbar__bottom
+      .topbar__bottom--left
+        %li.topbar__lists--left
+          = link_to "カテゴリー", "#", class: "top-category"
+        %li.topbar__lists--left
+          = link_to "ブランド", "#", class: "top-brand"
+      .topbar__bottom--right
+        = link_to "#", class: "top-login" do
+          ログイン
+        = link_to "#", class: "top-newResister" do
+          新規登録
