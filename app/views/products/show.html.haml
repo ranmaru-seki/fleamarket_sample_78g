@@ -1,0 +1,132 @@
+.wrapper
+  = render "topbar"
+  %nav.bread
+    %ul.bread__list
+      %li.bread__list__item
+        %a{href: "#", class: "unit"} FURIMA
+      %li.bread__list__item
+        %i.fa.fa-angle-right
+      %li.bread__list__item
+        %a{href: "#", class: "unit"} ベビー・キッズ
+      %li.bread__list__item
+        %i.fa.fa-angle-right
+      %li.bread__list__item
+        %a{href: "#", class: "unit"} ベビー服(男の子用)  ~95cm
+      %li.bread__list__item
+        %i.fa.fa-angle-right
+      %li.bread__list__item
+        %a{href: "#", class: "unit"} アウター
+      %li.bread__list__item
+        %i.fa.fa-angle-right
+      %li.bread__list__item
+        %p 商品名
+  .main
+    .showMain
+      .contentRight
+        .itemBox
+          %h2.itemBox__name 商品名
+          .itemBox__body
+            %ul.mainimg
+              %li.mainimg__item
+                = image_tag("/material/pict/pict-reason-02.jpg", {class: "mainimage"})
+                %ul.common
+                  %li.common__list
+                    = image_tag("/material/pict/pict-reason-02.jpg", {class: "commonimage"})
+                  %li.common__list
+                    = image_tag("/material/pict/pict-reason-01.jpg", {class: "commonimage"})
+          .itemBox__price
+            %span.itemprice
+              ¥1000
+            .itemBox__price-detail
+              %span.itemtax
+                (税込)
+              %span.itemtax
+                送料込み
+          %a{href: "#", class: "item-buy"} 購入画面に進む
+          .Explanation 商品説明 コメント
+          .table
+            %table.table__box
+              %tbody.table__box__list
+                %tr
+                  %th 出品者
+                  %td ss
+                %tr
+                  %th カテゴリー
+                  %td
+                    %a{href: "#"} ベビー・キッズ
+                    %br
+                    %a{href: "#"} ベビー服(男の子用)  ~95cm
+                    %br
+                    %a{href: "#"} アウター
+                %tr
+                  %th ブランド
+                  %td
+                %tr
+                  %th 商品のサイズ
+                  %td
+                %tr
+                  %th 商品の状態
+                  %td 新品/未使用
+                %tr
+                  %th 配送料の負担
+                  %td 送料込み（出品者負担）
+                %tr
+                  %th 発送元の地域
+                  %td
+                    %a{href: "#"} 北海道
+                %tr
+                  %th 発送日の目安
+                  %td 1-2日で発送
+          .optional
+            %ul.optional__Area
+              %li.likeBtn
+                %i.fa.fa-star
+                お気に入り 0
+            %ul.optional__Box
+              %li.optionalBtn
+                %a{href: "#"}
+                  %i.fa.fa-flag
+                  不適切な商品の通報
+        .commentBox
+          %ul.commentContents
+          %form.new_comment{action: "#", method: "post"}
+            %input{type: "hidden", value: ""}
+            %textarea.comment_body{required: "required"}
+            %p.noticeMsg
+              相手のことを考え丁寧なコメントを心がけましょう。
+              %br
+              不快な言葉遣いなどは利用制限や退会処分となることがあります。
+            %br
+            %button.commentBtn{name: "button", type: "submit"}
+              %i.fa.fa-comment
+              コメントする
+        %ul.links
+          %li
+            %a{:href => "#"}
+              %i.fa.fa-angle-left
+              %span
+              前の商品
+          %li
+            %a{href: "#"}
+              %span 後ろの商品
+              %i.fa.fa-angle-right
+        .related
+          %a.relatedItems{href: "#"} ベビー・キッズをもっと見る
+          .productLists
+            .productList
+              %a.productListimg{href: "#"}
+                %figure.productList--img
+                  = image_tag("/material/pict/pict-reason-01.jpg", {class: "productImage"})
+                .productList--body
+                  %h3.name product3
+                  .details
+                    %ul
+                      %li 30000円
+                      %li
+                        %i.fa.fa-star.likeIcon
+                        0
+                    %p (税込)
+  = render "footer"
+  = link_to "#", class: "sellBtn" do
+    %span.sellBtn__text 出品する
+    = image_tag "/material/icon/icon_camera.png", class: "sellBtn__image"
