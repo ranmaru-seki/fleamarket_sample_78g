@@ -1,3 +1,475 @@
-// Place all the styles related to the products controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+* {
+  box-sizing: border-box;
+}
+
+//toShare
+
+@mixin  mainTextColor {
+  color: #3CCACE;
+}
+
+@mixin  mainBgColor {
+  background-color: #3CCACE;
+}
+
+@mixin  textShadow {
+  text-shadow: 0 0 5px rgba(0,0,0,0.4);
+}
+
+@mixin  hoverColor {
+  color: #ffb340;
+}
+
+
+.appleBtn {
+  width: 175px;
+  margin-bottom: 12px;
+}
+.appleBtn:hover {
+  opacity: 0.5;
+}
+.googleBtn {
+  width: 200px;
+}
+.googleBtn:hover {
+  opacity: 0.5;
+}
+
+.sellBtn {
+  width: 120px;
+  background: #3CCACE;
+  text-align: center;
+  border-radius: 4%;
+  bottom: 32px;
+  right: 32px;
+  position: fixed;
+  padding: 15px;
+  text-decoration: none;
+  &__text {
+    color: #fff;
+    display: block;
+    font-size: 18px;
+    margin-bottom: 5px;
+  }
+  &__image {
+    width: 60%;
+  }
+}
+.sellBtn:hover {
+  opacity: 0.9;
+}
+
+li {
+  list-style: none;
+}
+
+//topbar
+.topbar {
+  height: 130px;
+  width: 100vw;
+  padding: 0 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  .topbar__top {
+    width:100%;
+    height:70px;
+    padding: 10px 0px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    &--icon {
+      width: 150px;
+    }
+    &--search {
+      width:100%;
+      .Form {
+        display: flex;
+        width:100%;
+        .Form__input {
+          margin-left: 20px;
+          width: 100%;
+          padding: 3px;
+        }
+        .Form__submit {
+          @include mainBgColor;
+          border: 1px solid #3CCACE;
+          cursor: pointer;
+          .search--icon {
+            width: 20px;
+          }
+        }
+      }
+    }
+  }
+  .topbar__bottom {
+    width: 100%;
+    height: 30px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    padding: 5px;
+
+    &--left {
+      display:flex;
+      .top-category {
+        text-decoration: none;
+        color: black;
+        margin-right: 40px;
+      }
+      .top-category:hover {
+        @include hoverColor;
+      }
+      .top-brand {
+        text-decoration: none;
+        color: black;
+      }
+      .top-brand:hover  {
+        @include hoverColor;
+      }
+    }
+    &--right {
+      display: flex;
+      .top-login {
+        text-decoration: none;
+        color: black;
+      }
+      .top-newResister {
+        text-decoration: none;
+        color: black;
+        margin-left: 30px;
+      }
+    }
+  }
+}
+
+//header
+.header__image {
+  width: 100vw;
+  &--pic {
+    width: 100vw;
+  }
+}
+.header__text {
+  position:relative;
+  color: white;
+  height: 0px;
+  width:50%;
+  @include textShadow;
+  top: -380px;
+  left: 100px;
+  &--main {
+    font-size: 60px;
+    margin-bottom: 20px;
+  }
+  &--sub {
+    font-size: 20px;
+    line-height: 2
+  }
+  .header__downloads {
+    margin-top: 20px;
+  }
+}
+
+//main
+.mainReason {
+  width: 100vw;
+  padding: 60px 20px;
+  &__title {
+    text-align: center;
+    font-size: 26px;
+    line-height: 1.4;
+    font-weight: bold;
+    margin-bottom: 10px;
+    padding-bottom: 15px;
+    position: relative;
+  }
+  &__littleBar {
+    content: "";
+    width: 70px;
+    height: 4px;
+    background-color: #3CCACE;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  &__contents {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0px 130px;
+    .Reason {
+      width: 30%;
+      height: 430px;
+      position: relative;
+      margin: 50px 30px;
+      .ReasonPic {
+        width: 100%;
+      }
+      .reason_text_main {
+        font-size: 23px;
+        font-weight: bold;
+        text-align: center;
+        margin: 20px 0;
+      }
+      .reason_text_sub {
+        font-size: 18px;
+      }
+      .reason_text_subLast {
+        font-size: 18px;
+        text-align: center;
+      }
+      span {
+        @include mainTextColor
+      }
+      .number {
+        display: inline-block;
+        position: absolute;
+        top: 0px;
+        left: 0;
+        border-radius: 4%;
+        font-size: 30px;
+        text-align: center;
+        padding: 7px 20px;
+        background-color: #3CCACE;
+        color: #fff;
+      }
+    }
+  }
+}
+
+//mainAd
+.mainAd {
+  background-image: url(/material/pict/bg-topMiddleDl-pict.jpg);
+  background-position: bottom right;
+  height: 400px;
+  background-size: cover;
+  color: white;
+  padding:100px 200px;
+  @include textShadow;
+  &__title {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  &__sub {
+    font-size: 18px;
+  }
+  .mainAd__downloads {
+    margin-top: 20px;
+  }
+}
+
+//mainFeature
+.mainFeature {
+  width: 100vw;
+  padding: 60px 20px;
+  &__title {
+    text-align: center;
+    font-size: 26px;
+    line-height: 1.4;
+    font-weight: bold;
+    margin-bottom: 10px;
+    padding-bottom: 15px;
+    position: relative;
+  }
+  &__littleBar {
+    content: "";
+    width: 70px;
+    height: 4px;
+    background-color: #3CCACE;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  &__contents {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0px 130px;
+    .Feature {
+      width: 30%;
+      height: 450px;
+      position: relative;
+      margin: 40px;
+      text-align: center;
+      .FeaturePic {
+        width: 70%;
+      }
+      .feature_text_main {
+        font-size: 20px;
+        font-weight: bold;
+        text-align: center;
+        margin: 20px 0;
+      }
+      .feature_text_sub {
+        font-size: 16px;
+        text-align: left;
+      }
+    }
+  }
+}
+
+
+//mainCategory
+.mainCategory {
+  background-color: #f8f8f8;
+  padding-top: 80px;
+
+  &__title {
+    text-align: center;
+    font-size: 28px;
+    line-height: 1.4;
+    font-weight: bold;
+  }
+  &__sub {
+    @include mainTextColor;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 20px;
+  }
+  &__wrapper {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    .Products {
+      width:220px;
+      background-color: white;
+      .CategoryPic {
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
+      }
+      &__info {
+        height: 95px;
+        width:100%;
+        padding:16px;
+        .price {
+          display:flex;
+          justify-content: space-between;
+        }
+        .tax {
+          font-size: 10px;
+        }
+      }
+    }
+    .Products:hover {
+      opacity: 0.5;
+    }
+  }
+}
+
+
+.mainBrand {
+  background-color: #f8f8f8;
+  padding-top: 100px;
+  padding-bottom: 100px;
+
+  &__title {
+    text-align: center;
+    font-size: 28px;
+    line-height: 1.4;
+    font-weight: bold;
+  }
+  &__sub {
+    @include mainTextColor;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 20px;
+  }
+  &__wrapper {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    .Products {
+      width:220px;
+      background-color: white;
+      .BrandPic {
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
+      }
+      &__info {
+        height: 95px;
+        width:100%;
+        padding:16px;
+        .price {
+          display:flex;
+          justify-content: space-between;
+        }
+        .tax {
+          font-size: 10px;
+        }
+      }
+    }
+    .Products:hover {
+      opacity: 0.5;
+    }
+  }
+}
+
+
+//mainAd-btm
+.mainAd-btm {
+  background-image: url(/material/pict/bg-appBanner-pict.jpg);
+  padding: 100px 40px;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+  color: white;
+  @include textShadow;
+  &__sub {
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 1.4;
+  }
+  &__title {
+    font-size: 35px;
+  }
+  &__downloads {
+    margin-top: 20px;
+  }
+}
+
+
+//footer
+.footer {
+  padding: 60px 0;
+  color: white;
+  background-color: #272727;
+  text-align: center;
+  &__contents {
+    display:flex;
+    justify-content:center;
+    max-width: 840px;
+    margin: 0 auto;
+    .content {
+      display: flex;
+      flex-direction: column;
+      width: calc(1 / 3 * 100%);
+      margin: 0 2% 0 0;
+      &__head {
+        margin: 0 0 20px;
+        font-size: 16px;
+        font-weight: bold;
+      }
+      &__text {
+        color: #fff;
+        text-decoration: none;
+        font-size: 12px;
+        line-height: 32px;
+      }
+      &__text:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+  &__logo {
+    width: 160px;
+    margin:0 auto;
+  }
+}
