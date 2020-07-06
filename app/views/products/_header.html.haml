@@ -1,0 +1,10 @@
+.header__image
+  = image_tag "/material/pict/bg-mainVisual-pict_pc.jpg", class: "header__image--pic"
+
+.header__text
+  %p.header__text--main 人生を変えるフリマアプリ
+  %p.header__text--sub FURIMAはだれでもかんたんに出品・購入できる
+  %p.header__text--sub フリマアプリです
+  .header__downloads
+    = link_to (image_tag "/images/app-store.svg", class: "header__downloads--apple appleBtn"), "#"
+    = link_to (image_tag "/images/google-play.png", class: "header__downloads--google googleBtn"), "#"
