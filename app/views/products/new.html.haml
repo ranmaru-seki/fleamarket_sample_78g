@@ -1,0 +1,82 @@
+.Window
+  .Head
+    =image_tag '/material/logo/logo.png', alt: 'logo', class: 'logo-furima'
+  .FormBox
+    %form.FormBox--form
+      .FormBox__ImageForm
+        .ItemInfo
+          %label.item_name 出品画像
+          %span.require 必須
+          %p 最大5枚までアップロードできます
+        .ImageField
+          .PreviewBox
+            .Preview
+          .ImagePlace
+            .DropArea
+              =icon('fas', 'camera', class: "camera")
+              %p.letter 画像をドラッグ&ドロップしてください。
+              %p.letter2 またはクリックして画像を選択してください。
+            %input{id:"hidden-field", type: "file"}
+      .FormBox__ProductInfo
+        .ItemInfo
+          %label.item_name 商品名
+          %span.require 必須
+        %input.input--field{"placeholder": "40文字まで", "type": "text"}
+        .ItemInfo
+          %label.item_name 商品の説明
+          %span.require 必須
+        %input.input--textarea{"placeholder": "商品の説明(色、素材、重さ、定価、注意点など)", "type": "textarea"}
+      .FormBox__ProductDetail
+        .ItemInfo
+          %label.item_name カテゴリー
+          %span.require 必須
+        %i.icon-arrow-bottom
+        %select.input--selectarea{name: "category"}
+          %option{value: ""} 選択してください。
+          %option{value: "カテゴリー"} カテゴリー
+        .ItemInfo
+          %label.item_name ブランド
+          %span.option 任意
+        %input.input--field{"placeholder": "例)シャネル", "type": "text"}
+        .ItemInfo
+          %label.item_name 商品の状態
+          %span.require 必須
+        %i.icon-arrow-bottom
+        %select.input--selectarea{name: "status"}
+          %option{value: ""} 選択してください。
+          %option{value: "美品"} 美品
+      .FormBox__ProductDelivery
+        .ItemInfo
+          %label.item_name 配送料の負担
+          %span.require 必須
+        %i.icon-arrow-bottom
+        %select.input--selectarea{name: "delivery"}
+          %option{value: ""} 選択してください。
+          %option{value: "出品者負担"} 出品者負担
+        .ItemInfo
+          %label.item_name 発送元の地域
+          %span.require 必須
+        %i.icon-arrow-bottom
+        %select.input--selectarea{name: "region"}
+          %option{value: ""} 選択してください。
+          %option{value: "東京"} 東京
+        .ItemInfo
+          %label.item_name 発送までの日数
+          %span.require 必須
+        %i.icon-arrow-bottom
+        %select.input--selectarea{name: "days"}
+          %option{value: ""} 選択してください。
+          %option{value: "1~2日"} 1~2日
+      .FormBox__ProductPrice
+        .ItemInfo--Price
+          %label.item_name 販売価格
+          %span.require 必須
+        .ItemForm
+          %p.yen ¥
+          %input.input--price{"placeholder": "0", "type": "text"}
+      .FormBox__Submit
+        %input.SubmitBtn{"type": "submit", "value": "出品する"}
+      .ReturnBtn
+        = link_to "もどる", ":back", class: "backto"
+      .Warning
+        %p 禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして加盟店規約に同意したことになります。

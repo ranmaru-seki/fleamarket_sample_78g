@@ -1,0 +1,259 @@
+@mixin Formbox() {
+  border-bottom: 1px solid #CCCCCC;
+  box-sizing: border-box;
+  display: inline-block;
+  padding: 40px;
+  text-align: left;
+  width: 700px;
+  }
+
+@mixin logo() {
+  margin: 40px 0 0;
+  width: 185px;
+  height: 49px;
+  line-height: 49px;
+}
+
+@mixin btn {
+  background: #3CCACE;
+  border: 1px solid #3CCACE;
+  color: #fff;
+  height: 60px;
+  width: 343px;
+  margin: 0 auto;
+  border-radius: 6px;
+}
+
+
+.Window{
+  background-color: #F5F5F5;
+  width: 100vw;
+  height: 2700px;
+  .Head{
+    width: 100%;
+    height: 130px;
+    line-height: 130px;
+    text-align: center;
+    img{
+      @include logo();
+    }
+  }
+  .FormBox{
+    background-color: #FFFFFF;
+    text-align: center;
+    margin: 0 auto;
+    width: 800px;
+    &__ImageForm{
+      @include Formbox();
+      height: 350px;
+      p{
+        font-size: 12px;
+      }
+      .ImageField{
+        width: 650px;
+        display: flex;
+        overflow: hidden;
+        .PreviewBox{
+          .Preview{
+            display: flex;
+            max-width: 100%;
+            max-height: 200px;
+            margin-right: 6.5px;
+            position: relative;
+            .image--box{
+              img{
+                width: 121.5px;
+                height: 150px;
+                margin-right: 6.5px;
+                border: 1px solid black;
+                display: block;
+              }
+            }
+            p.delete--btn{
+              cursor : pointer;
+              font-size: 15px;
+              padding-top: 2px;
+              position: absolute;
+              width: 121.5px;
+              height: 30px;
+              bottom: -5px;
+              color: white;
+              border: 1px solid #3CCACE;
+              text-align: center;
+              background-color: #3CCACE;
+            }
+          }
+        }
+        .ImagePlace{
+          cursor : pointer;
+          width: 100%;
+          height: 150px;
+          background-color: #F5F5F5;
+          border: 1px dotted #aaa;
+          position: relative;
+          .DropArea{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            .camera{
+              font-size: 16px;
+              position: absolute;
+              top: 50%;
+              left: 45%;
+            }
+            p.letter{
+              font-size: 9px;
+              position: absolute;
+              top: 95px;
+              left: 200px;
+            }
+            p.letter2{
+              font-size: 9px;
+              position: absolute;
+              top: 110px;
+              left: 200px;
+            }
+          }
+          #hidden-field{
+            display: none;
+          }
+        }
+      }
+    }
+    &__ProductInfo{
+      @include Formbox();
+      height: 500px;
+      position: relative;
+      .input--textarea{
+        width: 100%;
+        margin: 8px 0 8px 0;
+        height: 48px;
+        padding: 10px 16px 8px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        background: #fff;
+        line-height: 1.5;
+        font-size: 16px;
+        height: 150px;
+      }
+
+    }
+    &__ProductDetail{
+      @include Formbox();
+      height: 540px;
+      .option{
+        margin: 0 0 0 8px;
+        padding: 2px 4px;
+        background: #ccc;
+        border-radius: 2px;
+        color: #fff;
+        font-size: 12px;
+      }
+      
+    }
+    &__ProductDelivery{
+      @include Formbox();
+      height: 550px;
+    }
+    &__ProductPrice{
+      margin-left: 50px;
+      @include Formbox();
+      height: 150px;
+      display: flex;
+      justify-content: space-around;
+      .ItemInfo--Price{
+        margin-top: 12px;
+      }
+      .ItemForm{
+        display: flex;
+        p.yen{
+          line-height: 48px;
+          margin-right: 10px;
+        }
+        .input--price{
+          text-align: right;
+          width: 100%;
+          margin: 8px 0 8px 0;
+          height: 48px;
+          padding: 10px 16px 8px;
+          border-radius: 4px;
+          border: 1px solid #ccc;
+          background: #fff;
+          line-height: 1.5;
+          font-size: 16px;
+          width: 350px;
+        }
+      }
+    }
+    &__Submit{
+      padding: 50px 0;
+      input.SubmitBtn{
+        font-size: 17px;
+        padding: 10px 140px;
+        margin: 40px 0;
+        @include btn();
+      }
+    }
+    .ReturnBtn{
+      .backto{
+        font-size: 14px;
+        text-decoration: none;
+        display: block;
+        margin-top: 10px;
+        margin-bottom: 30px;
+      }
+    }
+    .Warning{
+      padding-bottom: 50px;
+      width: 500px;
+      display: inline-block;
+      text-align: center;
+      p{
+        font-size: 10px;
+      }
+    }
+  }
+}
+
+.item_name{
+  font-size: 14px;
+  font-weight: 600;
+}
+.require{
+  margin: 0 0 0 8px;
+  padding: 2px 4px;
+  background: #3CCACE;
+  border-radius: 2px;
+  color: #fff;
+  font-size: 12px;
+}
+
+.input--field{
+  width: 100%;
+  margin: 8px 0 8px 0;
+  height: 48px;
+  padding: 10px 16px 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: #fff;
+  line-height: 1.5;
+  font-size: 16px;
+}
+
+.input--selectarea{
+  width: 652px;
+  margin: 8px 0 8px 0;
+  height: 70px;
+  padding: 10px 16px 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background: #fff;
+  line-height: 1.5;
+  font-size: 16px;
+
+}
+
+.ItemInfo{
+  margin-bottom: 20px;
+  margin-top: 25px;
+}
