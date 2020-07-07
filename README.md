@@ -101,7 +101,7 @@ Things you may want to cover:
 |size|string||
 |delivery_id(acitve_hash)|integer|null: false|
 |region_id(acitve_hash)|integer|null: false|
-|days_id(acitve_hash)|integer|null: false|
+|day_id(acitve_hash)|integer|null: false|
 |price|integer|null: false|
 |category_id|integer|null: false, foreign_key: true|
 |user_id|integer|null: false, foreign_key: true|
@@ -129,8 +129,8 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|image|integer|null: false|
-|product_id|string|null: false, foreign_key: true|
+|image|string|null: false|
+|product_id|integer|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :product

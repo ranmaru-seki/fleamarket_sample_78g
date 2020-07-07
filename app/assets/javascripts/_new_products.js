@@ -25,30 +25,34 @@ $(function () {
   });
 
 
-  //画像プレビューの表示
-  $('#hidden-field').change(function(event){
-    event.preventDefault();
-    $('.ImagePlace').css('border', '1px solid #333');
-    var file = event.target.files[0]; // FileListの指定する。0で一番のファイルを指定している。
-    var reader = new FileReader();  //Fileをブラウザに読み込ませる
-    reader.onload = function () { // 読み込みが完了したら
-      img_src = reader.result;  // 下のreadAsDataURLの読み込み結果がresult
-      var html = `<div class="image--box">
-      <img src=${img_src}></img>
-      <p class='delete--btn'> 画像を削除 </p></div>`;
-      $('.Preview').append(html) //Previewクラスに挿入
-      $('.letter').hide();
-      $('.letter2').hide();
+  $(document).on('turbolinks:load', ()=> {
+    // 画像用のinputを生成する関数
+    const buildFileField = (index)=> {
+      const html = `<div data-index="${index}" class="js-file_group">
+                      <input class="js-file" type="file"
+                      name="product[images_attributes][${index}][src]"
+                      id="product_images_attributes_${index}_src"><br>
+                      <div class="js-remove">削除</div>
+                    </div>`;
+      return html;
     }
-    reader.readAsDataURL(file); // ブラウザ上にファイル読み込み、resultプロパティにURLを格納
-  });
-
-  // 画像プレビューを削除するボタン
-  $(document).on("click",".delete--btn",function () {
-    var target_image = $(this).parent()  //プレビューの削除する要素を取得
-    target_image.remove();    //上で指定した要素を削除
-    $('#hidden-field').val('');  // input要素の中身を削除
-    $('.ImagePlace').css('border', '1px dotted #aaa');  // 枠を点線に戻す
+  
+    // file_fieldのnameに動的なindexをつける為の配列
+    let fileIndex = [1,2,3,4,5,6,7,8,9,10];
+  
+    $("#hidden-field").on('change', '.js-file', function(e) {
+      // fileIndexの先頭の数字を使ってinputを作る
+      $('.PreviewBox').append(buildFileField(fileIndex[0]));
+      fileIndex.shift();
+      // 末尾の数に1足した数を追加する
+      fileIndex.push(fileIndex[fileIndex.length - 1] + 1)
+    });
+  
+    $('.PreviewBox').on('click', '.js-remove', function() {
+      $(this).parent().remove();
+      // 画像入力欄が0個にならないようにしておく
+      if ($('.js-file').length == 0) $('.PreviewBox').append(buildFileField(fileIndex[0]));
+    });
   });
 
 });
