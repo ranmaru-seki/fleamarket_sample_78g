@@ -23,7 +23,6 @@
       %p 支払い方法
       =icon('fas', 'plus-circle', class: "circle-icon")
       =link_to "クレジットカードを登録してください", "#" 
-      -# ユーザーにクレジットカード登録があれば選択、なければ作成
     .Place--to--deliver
       %p 配送先
       =icon('fas', 'plus-circle', class: "circle-icon")
@@ -32,5 +31,4 @@
       %p 支払い方法と配送先の入力を完了してください。
     .Purchase--btn
       =link_to "購入する", product_orders_path(), class: "purchase"
-      -#product_orders_path(@product)
 =render "products/footer"
