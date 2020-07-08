@@ -8,7 +8,7 @@ Rails.application.routes.draw do
       end # 一時的にcreateをcollectionでビュー確認しています。
     end
   end
-  resources :users, only: [:new, :edit, :update, :show, :create, ] do
+  resources :users, only: [:new, :edit, :update, :show, :create] do
     collection do 
       get :logout
     end
