@@ -1,0 +1,16 @@
+.Single-container
+  .Single-header
+    = image_tag("/material/logo/logo.png", {class: "logo"})
+  .Single
+    .Single__main
+      .Single__main__container 商品購入完了
+      .Form-container
+        .Form
+          .Form__complete
+            ありがとうございます。
+            %br
+            商品購入が完了しました。
+        .l-single-content
+          = link_to "トップページ", root_path, class: "nav-link-order", id: "top-page-link"
+          = link_to "マイページ", root_path, class: "nav-link-order"
+        = image_tag("/material/pict/bg-mainVisual-pict_pc.jpg", {class: "image"})

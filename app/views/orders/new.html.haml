@@ -1,0 +1,34 @@
+.Window
+  .Head
+    =image_tag '/material/logo/logo.png', alt: 'logo', class: 'logo-furima'
+  .FormBox
+    .Confirmation
+      %h2 購入内容の確認
+    .Info
+      .Info__Image
+        =image_tag '/material/pict/pict-reason-01.jpg', alt: 'logo', class: 'logo-furima'
+      .Info__Data
+        %p.name スマートフォン(未使用品)
+        .price--data
+          %span 送料込み(税込み)
+          %span.yen ¥
+          %span.price 3,500
+    .Price
+      .Price__Desc
+        %span 支払い金額
+      .Price__Amount
+        %span ¥
+        %span 3,500
+    .Way--to--pay
+      %p 支払い方法
+      =icon('fas', 'plus-circle', class: "circle-icon")
+      =link_to "クレジットカードを登録してください", "#" 
+    .Place--to--deliver
+      %p 配送先
+      =icon('fas', 'plus-circle', class: "circle-icon")
+      =link_to "配送先を登録してください", "#"
+    .Warning--for--purchase
+      %p 支払い方法と配送先の入力を完了してください。
+    .Purchase--btn
+      =link_to "購入する", product_orders_path(), class: "purchase"
+=render "products/footer"
