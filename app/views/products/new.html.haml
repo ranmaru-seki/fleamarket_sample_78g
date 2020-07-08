@@ -1,8 +1,8 @@
 .Window
   .Head
-    =image_tag '/material/logo/logo.png', alt: 'logo', class: 'logo-furima'
+    = image_tag '/material/logo/logo.png', alt: 'logo', class: 'logo-furima'
   .FormBox
-    %form.FormBox--form
+    = form_with model: @product, url: {controller: 'products', action: 'create' }, class:"FormBox--form", local: true do |f|
       .FormBox__ImageForm
         .ItemInfo
           %label.item_name 出品画像
@@ -11,72 +11,82 @@
         .ImageField
           .PreviewBox
             .Preview
+              - if @product.persisted?
+                - @product.images.each_with_index do |image, i|
+                  = image_tag image.src.url, data: { index: i }, width: "100", height: '100'
+            = f.fields_for :images do |image| #ネストフィールドでimageモデルへデータを送る
+              .js-file_group{"data-index" => image.index}
+                = image.file_field :src, class: "js-file"
+              - if @product.persisted?
+                = image.check_box :_destroy, data:{ index: image.index }, class: 'hidden-destroy'
+            - if @product.persisted?
+              .js-file_group{"data-index" => @product.images.count}
+                = file_field_tag :src, name: "product[images_attributes][#{@product.images.count}][src]", class: 'js-file'
+                %p.js-remove 削除
           .ImagePlace
             .DropArea
               =icon('fas', 'camera', class: "camera")
-              %p.letter 画像をドラッグ&ドロップしてください。
-              %p.letter2 またはクリックして画像を選択してください。
-            %input{id:"hidden-field", type: "file"}
+              #LetterMessage
+                %p 画像をドラッグ&ドロップしてください。
+                %p またはクリックして画像を選択してください。
       .FormBox__ProductInfo
         .ItemInfo
           %label.item_name 商品名
           %span.require 必須
-        %input.input--field{"placeholder": "40文字まで", "type": "text"}
+        = f.text_field :name, class: "input--field", placeholder: "40文字まで"
         .ItemInfo
           %label.item_name 商品の説明
           %span.require 必須
-        %input.input--textarea{"placeholder": "商品の説明(色、素材、重さ、定価、注意点など)", "type": "textarea"}
+        = f.text_area :item_info, class: "input--textarea", placeholder: "商品の説明(色、素材、重さ、定価、注意点など)"
       .FormBox__ProductDetail
         .ItemInfo
           %label.item_name カテゴリー
           %span.require 必須
         %i.icon-arrow-bottom
-        %select.input--selectarea{name: "category"}
-          %option{value: ""} 選択してください。
-          %option{value: "カテゴリー"} カテゴリー
+        %select.input--selectarea{name: "category_id"}
+          %option{value: "1"} 選択してください。
+          %option{value: "2"} カテゴリー
         .ItemInfo
           %label.item_name ブランド
           %span.option 任意
-        %input.input--field{"placeholder": "例)シャネル", "type": "text"}
+        = f.text_field :brand, class: "input--field", placeholder: "例)シャネル"
         .ItemInfo
           %label.item_name 商品の状態
           %span.require 必須
         %i.icon-arrow-bottom
-        %select.input--selectarea{name: "status"}
-          %option{value: ""} 選択してください。
-          %option{value: "美品"} 美品
+        = f.collection_select :status_id, Status.all, :id, :name, class: "input--selectarea"
+        .ItemInfo
+          %label.item_name 商品のサイズ
+          %span.require 必須
+        %i.icon-arrow-bottom
+        = f.text_field :size, class: "input--field", placeholder: "例)100x50cm"
       .FormBox__ProductDelivery
         .ItemInfo
           %label.item_name 配送料の負担
           %span.require 必須
         %i.icon-arrow-bottom
-        %select.input--selectarea{name: "delivery"}
-          %option{value: ""} 選択してください。
-          %option{value: "出品者負担"} 出品者負担
+        = f.collection_select :delivery_id, Delivery.all, :id, :name, class: "input--selectarea"
         .ItemInfo
           %label.item_name 発送元の地域
           %span.require 必須
         %i.icon-arrow-bottom
-        %select.input--selectarea{name: "region"}
-          %option{value: ""} 選択してください。
-          %option{value: "東京"} 東京
+        = f.collection_select :region_id, Region.all, :id, :name, class: "input--selectarea"
         .ItemInfo
           %label.item_name 発送までの日数
           %span.require 必須
         %i.icon-arrow-bottom
-        %select.input--selectarea{name: "days"}
-          %option{value: ""} 選択してください。
-          %option{value: "1~2日"} 1~2日
+        = f.collection_select :day_id, Day.all, :id, :name, class: "input--selectarea"
       .FormBox__ProductPrice
         .ItemInfo--Price
           %label.item_name 販売価格
           %span.require 必須
         .ItemForm
           %p.yen ¥
-          %input.input--price{"placeholder": "0", "type": "text"}
+          = f.text_field :price, class: "input--price", placeholder: "0"
       .FormBox__Submit
-        %input.SubmitBtn{"type": "submit", "value": "出品する"}
+        = f.submit "出品する", class: "SubmitBtn"
       .ReturnBtn
         = link_to "もどる", ":back", class: "backto"
       .Warning
         %p 禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして加盟店規約に同意したことになります。
+= render "footer"
