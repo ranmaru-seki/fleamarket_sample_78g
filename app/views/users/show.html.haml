@@ -13,51 +13,51 @@
     .mypage__list
       %ul.mypage__list--navi
         %li
-          %a.mypage-nav-list-item.active{href: "#"}
+          =link_to "#",class:"mypage-nav-list-item" do
             マイページ
             %i.icon-arrow-right
         %li
-          %a.mypage-nav-list-item{href: "#"}
+          =link_to "#",class:"mypage-nav-list-item" do
             やることリスト
             %i.icon-arrow-right
         %li
-          %a.mypage-nav-list-item{href: "#"}
+          =link_to "#",class:"mypage-nav-list-item" do
             いいね！一覧
             %i.icon-arrow-right
         %li
-          %a.mypage-nav-list-item{href: "#"}
+          =link_to "#",class:"mypage-nav-list-item" do
             出品する
             %i.icon-arrow-right
         %li
-          %a.mypage-nav-list-item{href: "#"}
+          =link_to "#",class:"mypage-nav-list-item" do
             出品した商品 - 出品中
             %i.icon-arrow-right
         %li
-          %a.mypage-nav-list-item{href: "#"}
+          =link_to "#",class:"mypage-nav-list-item" do
             出品した商品 - 取引中
             %i.icon-arrow-right
         %li
-          %a.mypage-nav-list-item{href: "#"}
+          =link_to "#",class:"mypage-nav-list-item" do
             出品した商品 - 売却済み
             %i.icon-arrow-right
         %li
-          %a.mypage-nav-list-item{href: "#"}
+          =link_to "#",class:"mypage-nav-list-item" do
             購入した商品 - 取引中
             %i.icon-arrow-right
         %li
-          %a.mypage-nav-list-item{href: "#"}
+          =link_to "#",class:"mypage-nav-list-item" do
             購入した商品 - 過去の取引
             %i.icon-arrow-right
         %li
-          %a.mypage-nav-list-item{href: "#"}
+          =link_to "#",class:"mypage-nav-list-item" do
             ログアウト
             %i.icon-arrow-right
         %li
-          %a.mypage-nav-list-item{href: "#"}
+          =link_to "#",class:"mypage-nav-list-item" do
             クレジットカードの切り替え
             %i.icon-arrow-right
         %li
-          %a.mypage-nav-list-item{href: "#"}
+          =link_to "#",class:"mypage-nav-list-item" do
             評価一覧
             %i.icon-arrow-right
         %li
@@ -74,12 +74,10 @@
       %ul.mypage__bord--now 
         %li.mypage__bord--now__info
           %h3.mypage__bord--now__info--mains
-            %a{"mypage__bord--now__info--main__forms": "tab", href: "#" }
-              取引中
+            = link_to "取引中","#", class:"mypage__bord--now__info--main__forms"
         %li.mypage__bord--now__info
           %h3.mypage__bord--now__info--mains
-            %a{"mypage__bord--now__info--main__forms": "tab", href: "#"}
-              過去の取引
+            = link_to "過去の取引","#", class:"mypage__bord--now__info--main__forms"
 
 .footer
   .footer__contents
