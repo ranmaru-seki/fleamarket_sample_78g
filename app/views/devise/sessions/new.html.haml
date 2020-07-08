@@ -1,0 +1,29 @@
+.Single-container
+  .Single-header
+    = image_tag("/material/logo/logo.png", {class: "logo"})
+  .Single
+    .Single__main
+      .Single__main__container ログイン
+      .Form-container
+        = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+          .FormField
+            .FormField__label--normal
+              = f.label :メールアドレス
+              %span.form-require 必須
+            .FormField__input--normal
+              = f.email_field :email, autofocus: true, autocomplete: "email"
+          .FormField
+            .FormField__label--normal
+              = f.label :パスワード
+              %span.form-require 必須
+            .FormField__input--normal
+              = f.password_field :password, autocomplete: "current-password"
+          .FormField
+          - if devise_mapping.rememberable?
+            .field
+              = f.check_box :remember_me
+              = f.label :remember_me
+            = render "devise/shared/links"
+          .l-single-content
+            = f.submit "ログイン", class: 'btn-default'
+  = render "users_footer"
