@@ -11,7 +11,7 @@ class CreateProducts < ActiveRecord::Migration[6.0]
       t.integer :day_id, null: false
       t.integer :price, null: false
       t.references :category, null: false
-      # t.references :user, foreign_key: true　--別のバックログで実装
+      t.references :user
       t.timestamps
     end
   end
