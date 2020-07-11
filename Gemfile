@@ -76,3 +76,5 @@ gem 'carrierwave'
 gem 'fog-aws'
 gem 'active_hash'
 gem 'mini_magick'
+
+gem 'ancestry'

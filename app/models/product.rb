@@ -1,9 +1,10 @@
 class Product < ApplicationRecord
   # belongs_to :user, optional: true --別のバックログで実装
-  # has_many :categories, optional: true --別のバックログで実装
   has_many :images
   accepts_nested_attributes_for :images, allow_destroy: true
   
+  belongs_to :category
+
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :status
   belongs_to_active_hash :delivery
