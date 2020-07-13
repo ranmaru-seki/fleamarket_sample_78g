@@ -2,81 +2,90 @@
 %nav.bread
   %ul.bread__list
     %li.bread__list__item
-      = link_to "FURIMA", "#", class: "unit"
+      = link_to "FURIMA", root_path, class: "unit"
     %li.bread__list__item
       %i.fa.fa-angle-right
     %li.bread__list__item
-      = link_to "ベビー・キッズ", "#", class: "unit"
+      = link_to "#{@product.category.root.name}", "#", class: "unit"
     %li.bread__list__item
       %i.fa.fa-angle-right
     %li.bread__list__item
-      = link_to "ベビー服(男の子用)  ~95cm", "#", class: "unit"
+      = link_to "#{@product.category.parent.name}", "#", class: "unit"
     %li.bread__list__item
       %i.fa.fa-angle-right
     %li.bread__list__item
-      = link_to "アウター", "#", class: "unit"
+      = link_to "#{@product.category.name}", "#", class: "unit"
     %li.bread__list__item
       %i.fa.fa-angle-right
     %li.bread__list__item
-      %p 商品名
+      = @product.name
 .main
   .showMain
     .contentRight
       .itemBox
-        %h2.itemBox__name 商品名
+        %h2.itemBox__name
+          = @product.name
         .itemBox__body
           %ul.mainimg
             %li.mainimg__item
-              = image_tag("/material/pict/pict-reason-02.jpg", {class: "mainimage"})
+              = image_tag @image.src.url, class: "mainimage"
               %ul.common
-                %li.common__list
-                  = image_tag("/material/pict/pict-reason-02.jpg", {class: "commonimage"})
-                %li.common__list
-                  = image_tag("/material/pict/pict-reason-01.jpg", {class: "commonimage"})
+                - @image_array.each do |image|
+                  %li.common__list
+                    = image_tag image.src.url, class: "commonimage"
         .itemBox__price
           %span.itemprice
-            ¥1000
+            = "#{@product.price} 円"
           .itemBox__price-detail
             %span.itemtax
               (税込)
             %span.itemtax
-              送料込み
-        = link_to new_order_path, class: "item-buy"  do
-          %span.sellBtn__text 購入画面に進む
-        .Explanation 商品説明 コメント
+              = Delivery.find_by_id(@product.delivery_id).name
+        - if current_user == @product.user
+          = link_to "商品の編集する", "#", class: "item-buy"
+        - else
+          = link_to "商品を購入する", "#", class: "item-buy"
+        .Explanation 
+          = @product.item_info
         .table
           %table.table__box
             %tbody.table__box__list
               %tr
                 %th 出品者
-                %td ss
+                %td
+                  = @product.user.name
               %tr
                 %th カテゴリー
                 %td
-                  = link_to "ベビー・キッズ", "#", class: "tdlink"
+                  = link_to "#{@product.category.root.name}", "#", class: "tdlink"
                   %br
-                  = link_to "ベビー服(男の子用)  ~95cm", "#", class: "tdlink"
+                  = link_to "#{@product.category.parent.name}", "#", class: "tdlink"
                   %br
-                  = link_to "アウター", "#", class: "tdlink"
+                  = link_to "#{@product.category.name}", "#", class: "tdlink"
               %tr
                 %th ブランド
                 %td
+                  = @product.brand
               %tr
                 %th 商品のサイズ
                 %td
+                  = @product.size
               %tr
                 %th 商品の状態
-                %td 新品/未使用
+                %td
+                  = Status.find_by_id(@product.status_id).name
               %tr
                 %th 配送料の負担
-                %td 送料込み（出品者負担）
+                %td
+                  = Delivery.find_by_id(@product.delivery_id).name
               %tr
                 %th 発送元の地域
                 %td
-                  = link_to "北海道", "#", class: "tdlink"
+                  = link_to "#{Region.find_by_id(@product.region_id).name}", "#", class: "tdlink"
               %tr
                 %th 発送日の目安
-                %td 1-2日で発送
+                %td 
+                  = Day.find_by_id(@product.day_id).name
         .optional
           %ul.optional__Area
             %li.likeBtn
@@ -111,21 +120,25 @@
             %span 後ろの商品
             %i.fa.fa-angle-right
       .related
-        = link_to "ベビー・キッズをもっと見る", "#", class: "relatedItems"
+        = link_to "#{@product.category.root.name}", "#", class: "relatedItems"
         .productLists
-          .productList
-            = link_to "#", class: "productListimg" do
-              %figure.productList--img
-                = image_tag("/material/pict/pict-reason-01.jpg", {class: "productImage"})
-              .productList--body
-                %h3.name product3
-                .details
-                  %ul
-                    %li 30000円
-                    %li
-                      %i.fa.fa-star.likeIcon
-                      0
-                  %p (税込)
+          - @product_array.each do |product, i|
+          - break if i == 10
+            .productList
+              = link_to product_path(product.id), class: "productListimg" do
+                %figure.productList--img
+                  = image_tag Image.find(product.id).src.url, class: "productImage"
+                .productList--body
+                  %h3.name
+                    = product.name
+                  .details
+                    %ul
+                      %li
+                        = product.price
+                      %li
+                        %i.fa.fa-star.likeIcon
+                        0
+                    %p (税込)
 = render "footer"
 = link_to "#", class: "sellBtn" do
   %span.sellBtn__text 出品する
