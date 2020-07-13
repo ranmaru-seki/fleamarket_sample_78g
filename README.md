@@ -68,11 +68,9 @@ Things you may want to cover:
 ### creditcards
 |Column|Type|Options|
 |------|----|-------|
-|number|integer|null: false|
-|year|integer|null: false|
-|month|integer|null: false|
-|code|integer|null: false|
-|user_id|integer|null: false,foreign_key: true|
+|user_id|integer|null: false|
+|customer_id|string|null: false|
+|card_id|string|null: false|
 
 ### Association
 - belongs_to :user
@@ -117,7 +115,7 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|parent_id|integer||
+|ansestry|integer||
 |name|string|add_index: ture|
 
 ### Association

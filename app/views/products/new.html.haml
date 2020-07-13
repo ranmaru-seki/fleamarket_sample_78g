@@ -42,10 +42,8 @@
         .ItemInfo
           %label.item_name カテゴリー
           %span.require 必須
-        %i.icon-arrow-bottom
-        %select.input--selectarea{name: "category_id"}
-          %option{value: "1"} 選択してください。
-          %option{value: "2"} カテゴリー
+        .listing-product-detail__category
+          = f.select :category, @category_parent_array, {}, class: "listing-select-wrapper__box--select", id: "parent_category"
         .ItemInfo
           %label.item_name ブランド
           %span.option 任意
@@ -57,7 +55,7 @@
         = f.collection_select :status_id, Status.all, :id, :name, class: "input--selectarea"
         .ItemInfo
           %label.item_name 商品のサイズ
-          %span.require 必須
+          %span.option 任意
         %i.icon-arrow-bottom
         = f.text_field :size, class: "input--field", placeholder: "例)100x50cm"
       .FormBox__ProductDelivery
@@ -89,4 +87,3 @@
         = link_to "もどる", ":back", class: "backto"
       .Warning
         %p 禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして加盟店規約に同意したことになります。
-= render "footer"
