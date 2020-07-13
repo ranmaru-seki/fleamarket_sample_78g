@@ -5,7 +5,7 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
-    @image = Image.find(@product.id)
+    @image = Image.find_by(product_id: @product.id)
     @image_array = []
     Image.where(product_id: @product.id).each do |image|
       @image_array << image
