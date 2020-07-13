@@ -13,6 +13,8 @@ Rails.application.routes.draw do
     collection do # 新規用（new) products/newのため
       get 'get_category_children', defaults: { format: 'json' }
       get 'get_category_grandchildren', defaults: { format: 'json' }
+      get 'get_toppage_children', defaults: { format: 'json' }
+      get 'get_toppage_grandchildren', defaults: { format: 'json' }
     end
     member do # 編集用（edit) products/editのため
       get 'get_category_children', defaults: { format: 'json' }

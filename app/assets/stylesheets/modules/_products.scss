@@ -63,6 +63,94 @@ li {
   list-style: none;
 }
 
+//tree
+
+.displayNone {
+  display: none;
+}
+
+.parents__list {
+  position: absolute;
+  top: 130px;
+  z-index: 2;
+  background-color: white;
+  width: 200px;
+}
+
+.children_list {
+  position: absolute;
+  top: 130px;
+  left: 405px;
+  z-index: 2;
+  background-color: white;
+  width: 200px;
+}
+
+.grand_children_list {
+  position: absolute;
+  top: 130px;
+  left: 605px;
+  z-index: 2;
+  background-color: white;
+  width: 230px;
+}
+
+.parent_category {
+  display: block;
+  padding: 10px 5px;
+  border-bottom: 1px solid lightgray;
+  color: black;
+  text-decoration: none;
+}
+
+.parent_category:hover {
+  @include mainBgColor;
+}
+
+.child_category {
+  display: block;
+  padding: 8px 5px;
+  border-bottom: 1px solid lightgray;
+  color: black;
+  text-decoration: none;
+}
+
+.child_category:hover {
+  @include mainBgColor;
+}
+
+.grand_child_category {
+  display: block;
+  padding: 7px 5px;
+  border-bottom: 1px solid lightgray;
+  color: black;
+  text-decoration: none;
+}
+
+.grand_child_category:hover {
+  @include mainBgColor;
+}
+
+.category-overlay {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0);
+  display: none;
+  z-index: 1.5
+}
+
+li {
+  padding: 10px 3px;
+  border-bottom: 1px solid lightgray;
+}
+li:hover {
+  @include mainBgColor;
+}
+
+
 //topbar
 .topbar {
   height: 130px;

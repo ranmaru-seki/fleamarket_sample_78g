@@ -9,9 +9,15 @@
             = image_tag "/material/icon/icon-search 1.png", class: "search--icon"
     .topbar__bottom
       .topbar__bottom--left
-        %li.topbar__lists--left
+        .category.parent_show_hover
           = link_to "カテゴリー", "#", class: "top-category"
-        %li.topbar__lists--left
+          .category-overlay
+          .parents__list.show_hover.displayNone
+            - @parents.each do |parent|
+              = link_to "#{parent.name}", "#", class: "parent_category", id: "#{parent.id}"
+          .children_list
+          .grand_children_list
+        .brand
           = link_to "ブランド", "#", class: "top-brand"
       .topbar__bottom--right
         - if user_signed_in?
