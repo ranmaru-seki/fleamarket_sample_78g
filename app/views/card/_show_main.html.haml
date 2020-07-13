@@ -1,0 +1,19 @@
+.Single
+  .Single__main
+    .chapter-head
+      %label 支払い方法
+    .form-tag
+      クレジットカード一覧
+      %br
+    .form-tag
+      = "**** **** **** " + @default_card_information.last4
+      %br
+      - exp_month = @default_card_information.exp_month.to_s
+      - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+      = exp_month + " / " + exp_year
+      = form_tag(delete_card_index_path, method: :post, id: 'charge-form',  name: "inputForm", class: "delete_card") do
+        %input{ type: "hidden", name: "card_id", value: ""}
+        %button{class: "delete_submit"} 削除する
+    .Backbtn
+      = link_to new_order_path, class: "Backbtn-path"  do
+        %span 支払い方法を選択する

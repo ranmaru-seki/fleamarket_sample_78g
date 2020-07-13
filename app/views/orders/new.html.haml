@@ -22,7 +22,8 @@
     .Way--to--pay
       %p 支払い方法
       =icon('fas', 'plus-circle', class: "circle-icon")
-      =link_to "クレジットカードを登録してください", "#" 
+      = link_to new_card_path, class: ""  do
+        クレジットカードを登録してください
     .Place--to--deliver
       %p 配送先
       =icon('fas', 'plus-circle', class: "circle-icon")
@@ -30,5 +31,9 @@
     .Warning--for--purchase
       %p 支払い方法と配送先の入力を完了してください。
     .Purchase--btn
-      =link_to "購入する", product_orders_path(), class: "purchase"
+      = link_to new_order_path, class: "purchase"  do
+        %span.sellBtn__text 購入する
+      -# = form_tag(action: :pay, method: :post) do
+      -#   %script.payjp-button{:src => "https://checkout.pay.jp", :type => "text/javascript" ,"data-text" => "購入する" ,"data-key" => "pk_test_cb3e4c2601dd5c1fa0a7d7ad"}
 =render "products/footer"
+-#       =link_to "購入する", product_orders_path(), class: "purchase"

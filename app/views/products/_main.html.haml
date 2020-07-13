@@ -70,7 +70,7 @@
     新規投稿商品
   .mainCategory__wrapper
     .Products
-      = image_tag "/material/pict/pict-reason-01.jpg", class: "CategoryPic"
+      = link_to image_tag("/material/pict/pict-reason-01.jpg", class:"CategoryPic"), "products/show"
       .Products__info
         %p.name ee
         .price
@@ -82,7 +82,7 @@
         %p.tax (税込)
 
     .Products
-      = image_tag "/material/pict/pict-reason-01.jpg", class: "CategoryPic"
+      = link_to image_tag("/material/pict/pict-reason-01.jpg", class:"CategoryPic"), "products/show"
       .Products__info
         %p.name ee
         .price
@@ -94,7 +94,7 @@
         %p.tax (税込)
 
     .Products
-      = image_tag "/material/pict/pict-reason-01.jpg", class: "CategoryPic"
+      = link_to image_tag("/material/pict/pict-reason-01.jpg", class:"CategoryPic"), "products/show"
       .Products__info
         %p.name ee
         .price
