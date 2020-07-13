@@ -41,7 +41,8 @@
               (税込)
             %span.itemtax
               送料込み
-        = link_to "購入画面に進む", "#", class: "item-buy"
+          = link_to new_order_path, class: "item-buy"  do
+            %span.sellBtn__text 購入画面に進む
         .Explanation 商品説明 コメント
         .table
           %table.table__box

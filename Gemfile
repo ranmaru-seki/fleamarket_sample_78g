@@ -78,3 +78,4 @@ gem 'active_hash'
 gem 'mini_magick'
 
 gem 'ancestry'
+gem 'payjp'

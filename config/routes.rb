@@ -20,7 +20,8 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :orders, only: [:new]
   resources :users, only: [:new, :edit, :update, :show, :create, :destroy]
   resources :creditcards, only: [:show, :new]
+  resources :card, only: [:new, :create, :show, :destroy] do
+  end
 end

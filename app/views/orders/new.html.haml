@@ -22,7 +22,8 @@
     .Way--to--pay
       %p 支払い方法
       =icon('fas', 'plus-circle', class: "circle-icon")
-      =link_to "クレジットカードを登録してください", "#" 
+      = link_to new_card_path, class: ""  do
+        クレジットカードを登録してください
     .Place--to--deliver
       %p 配送先
       =icon('fas', 'plus-circle', class: "circle-icon")
@@ -30,5 +31,5 @@
     .Warning--for--purchase
       %p 支払い方法と配送先の入力を完了してください。
     .Purchase--btn
-      =link_to "購入する", product_orders_path(), class: "purchase"
+      =link_to "購入する", root_path, class: "purchase"
 =render "products/footer"
