@@ -205,6 +205,8 @@
         }
         .productLists{
           display: flex;
+          overflow: hidden;
+          overflow-x:auto;
           .productList{
             margin: 0 0 10px;
             float: left;

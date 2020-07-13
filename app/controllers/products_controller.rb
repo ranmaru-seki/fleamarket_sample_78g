@@ -4,6 +4,10 @@ class ProductsController < ApplicationController
   end
 
   def show
+    @product = Product.find(params[:id])
+    @image = Image.find_by(product_id: @product.id)
+    @image_array = Image.where(product_id: @product.id)
+    @product_array = Product.where(category_id: @product.category_id).reverse
   end
 
   def new
@@ -18,7 +22,7 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     if @product.save
-      redirect_to root_path
+      redirect_to product_path(@product.id)
     else
       render :new
     end
