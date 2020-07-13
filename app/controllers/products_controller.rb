@@ -6,15 +6,8 @@ class ProductsController < ApplicationController
   def show
     @product = Product.find(params[:id])
     @image = Image.find_by(product_id: @product.id)
-    @image_array = []
-    Image.where(product_id: @product.id).each do |image|
-      @image_array << image
-    end
-    @product_array = []
-    Product.where(category_id: @product.category_id).each do |product|
-      @product_array << product
-      @product_array.reverse
-    end
+    @image_array = Image.where(product_id: @product.id)
+    @product_array = Product.where(category_id: @product.category_id).reverse
   end
 
   def new
