@@ -128,6 +128,46 @@
         text-align: center;
       }
     }
+    .destoroy__frame__btns{
+      max-width: 343px;
+      padding: 24px 16px 40px;
+      margin: 0 auto;
+      .credit_card_new_link{
+        &__btn{
+          line-height: 60px;
+          display: block;
+          background: #3CCACE;
+          border: 1px solid #3CCACE;
+          height: 60px;
+          width: 343px;
+          margin: 0 auto;
+          border-radius: 6px;
+          text-decoration: none;
+          color: white;
+          text-align: center;
+        }
+      }
+    }
+    .create__frame__btns{
+      max-width: 343px;
+      padding: 24px 16px 40px;
+      margin: 0 auto;
+      .my_page_link{
+        .my_page_link__btn{
+          line-height: 60px;
+          display: block;
+          background: #3CCACE;
+          border: 1px solid #3CCACE;
+          height: 60px;
+          width: 343px;
+          margin: 10px auto;
+          border-radius: 6px;
+          text-decoration: none;
+          color: white;
+          text-align: center;
+        }
+      }
+    }
   }
 }
 .single-footer{
