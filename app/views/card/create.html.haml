@@ -1,0 +1,11 @@
+= render "card_header"
+.Single
+  .Single__main
+    .chapter-head
+      登録が完了しました。
+    %ul.form-tag
+      %li.add
+        = link_to "マイページに戻る", user_path(current_user.id), class: "token-submit"
+      %li.add
+        = link_to "登録カード一覧", card_path(current_user.id), class: "token-submit"
+= render "card_footer" 

@@ -1,4 +1,4 @@
-= render "topbar"
+= render "users/user_topbar"
 %nav.bread
   %ul.bread__list
     %li.bread__list__item
@@ -44,7 +44,8 @@
         - if current_user == @product.user
           = link_to "商品の編集する", "#", class: "item-buy"
         - else
-          = link_to "商品を購入する", "#", class: "item-buy"
+          = link_to new_order_path, class: "item-buy"  do
+            %span.sellBtn__text 商品を購入する
         .Explanation 
           = @product.item_info
         .table

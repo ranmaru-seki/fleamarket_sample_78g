@@ -1,0 +1,22 @@
+= render "card_header"
+.Single
+  .Single__main
+    .chapter-head
+      登録クレジットカード情報
+    .form-tag
+      .number-details
+        クレジットカード一覧
+      .number-details
+        .credit_card_info
+          .credit_card_info__numbers
+            .number
+              = "**** **** **** " + @customer_card.last4
+            .expiration_date
+              .expiration_date__title
+                有効期限
+              .expiration_date__info
+                = @exp_month + " / " + @exp_year
+        .destroy__function
+          = link_to card_path, method: :delete, class: "destroy__function__link__btn" do 
+            削除する
+= render "card_footer" 
