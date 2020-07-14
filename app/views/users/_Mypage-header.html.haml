@@ -1,0 +1,9 @@
+.Mypage-header
+  %nav.bread-crumbs
+    %ul.Itemscop
+      %li.bread-crumbs-item
+        = link_to "FURIMA", root_path, class: "unit"
+      %li.bread-crumbs-item
+        %i.fa.fa-angle-right
+      %li.bread-crumbs-item
+        = link_to "マイページ", user_path(current_user.id), class: "unit"
