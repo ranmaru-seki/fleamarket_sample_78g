@@ -44,7 +44,7 @@
         - if current_user == @product.user
           = link_to "商品の編集する", "#", class: "item-buy"
         - else
-          = link_to new_order_path, class: "item-buy"  do
+          = link_to buy_product_orders_path(@product.id), class: "item-buy"  do
             %span.sellBtn__text 商品を購入する
         .Explanation 
           = @product.item_info
