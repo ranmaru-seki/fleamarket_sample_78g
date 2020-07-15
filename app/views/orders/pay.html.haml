@@ -1,0 +1,9 @@
+.Window
+  .Head
+    =image_tag '/material/logo/logo.png', alt: 'logo', class: 'logo-furima'
+  .FormBox
+    .Confirmation
+      %h2 購入が完了しました。
+      .Purchase--btn
+        = link_to "トップページに戻る", root_path, class: "purchase"
+=render "products/footer"

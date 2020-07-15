@@ -1,0 +1,59 @@
+.Window
+  .Head
+    =image_tag '/material/logo/logo.png', alt: 'logo', class: 'logo-furima'
+  .FormBox
+    .Confirmation
+      %h2 購入内容の確認
+    .Info
+      .Info__Image
+        -# = image_tag @image.src.url, class: 'logo-furima'
+      .Info__Data
+        %p.name
+          = @product.name
+        .price--data
+          %span 送料込み(税込み)
+          %span.yen ¥
+          %span.price 
+            = "#{@product.price} 円"
+    .Price
+      .Price__Desc
+        %span 支払い金額
+      .Price__Amount
+        %span ¥
+        %span
+          = "#{@product.price} 円"
+    .Way--to--pay
+      %p 支払い方法
+      - if @user.card.present?
+        .card_info_title
+          クレジットカード情報
+          .card_info
+            .card_info__brand
+              -# = image_tag "cards/#{@card_src}", class: "credit_card_info__brand__img", alt: @card_brand
+            .credit_card_info__numbers
+              .number
+                = "**** **** **** " + @customer_card.last4
+              .expiration_date
+                .expiration_date__title
+                  有効期限
+                .expiration_date__info
+                  = @exp_month + " / " + @exp_year
+      - else
+        =icon('fas', 'plus-circle', class: "circle-icon")
+        = link_to new_card_path, class: ""  do
+          クレジットカードを登録してください
+    .Place--to--deliver
+      %p 配送先
+      =icon('fas', 'plus-circle', class: "circle-icon")
+      =link_to "配送先を登録してください", "#"
+    .Warning--for--purchase
+      %p 支払い方法と配送先の入力を完了してください。
+    - if @user.card.present?
+      .Purchase--btn
+        = link_to "購入する", pay_product_orders_path(product_id: @product.id), method: :post, class: "purchase"
+    - else 
+      .Purchase--btn
+        = form_tag(action: :pay, method: :post) do
+          %script.payjp-button{src: "https://checkout.pay.jp", type: "text/javascript" ,"data-text": "購入する" ,"data-key": "pk_test_cb3e4c2601dd5c1fa0a7d7ad",}
+=render "products/footer"
+

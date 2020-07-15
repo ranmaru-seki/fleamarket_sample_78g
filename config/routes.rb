@@ -20,9 +20,16 @@ Rails.application.routes.draw do
       get 'get_category_children', defaults: { format: 'json' }
       get 'get_category_grandchildren', defaults: { format: 'json' }
     end
+    resource :orders do
+      member do
+        get  "buy"
+        post "pay"
+      end
+    end
   end
 
-  resources :orders, only: [:new]
-  resources :users, only: [:new, :edit, :update, :show, :create, :destroy]
-  resources :creditcards, only: [:show, :new]
+  resources :orders, only: [:new, :create]
+  resources :users, only: [:new, :edit, :show]
+  resources :card, only: [:new, :create, :show, :destroy] do
+  end
 end
