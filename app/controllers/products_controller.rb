@@ -3,12 +3,7 @@ class ProductsController < ApplicationController
   def index
     @parents = Category.where(ancestry: nil);
     @product_array = Product.all.reverse
-    @lady_product_array = []
-    @product_array.each do |product|
-      if product.category.root.id == 1 #レディースカテゴリのid
-          @lady_product_array << product
-      end
-    end
+    @lady_product_array = @product_array.select { |product| product.category.root.id == 1 }
   end
 
   def show
