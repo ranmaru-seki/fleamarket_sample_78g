@@ -81,7 +81,7 @@
               cursor : pointer;
               font-size: 15px;
               padding-top: 2px;
-              width: 121.5px;
+              width: 100px;
               height: 30px;
               bottom: -5px;
               color: white;
@@ -222,7 +222,21 @@
         @include btn();
       }
     }
+    .DeleteBtn{
+      margin-left: 255px;
+      #ProdcutDelete{
+        width: 300px;
+        border-radius: 10px;
+        background-color: red;
+        a{
+          text-decoration: none;
+          color: white;
+          text-align: center;
+        }
+      }
+    }
     .ReturnBtn{
+      margin-top: 30px;
       .backto{
         font-size: 14px;
         text-decoration: none;
@@ -272,4 +286,68 @@ input.input--field{
 .ItemInfo{
   margin-bottom: 20px;
   margin-top: 25px;
+}
+
+
+//ここからedit用
+.FormBox__ProductDetail__EDIT{
+  @include Formbox();
+  height: 850px;
+  .listing-select-wrapper__box--select{
+    @include selectarea();
+  }
+  .option{
+    margin: 0 0 0 8px;
+    padding: 2px 4px;
+    background: #ccc;
+    border-radius: 2px;
+    color: #fff;
+    font-size: 12px;
+  }
+  input.input--field{
+    width: 100%;
+    margin: 8px 0 8px 0;
+    height: 48px;
+    padding: 10px 16px 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background: #fff;
+    line-height: 1.5;
+    font-size: 16px;
+  }
+  select.input--selectarea{
+    @include selectarea();
+  }
+  select#product_status_id{
+    @include selectarea();
+  }
+}
+
+
+#image-box{
+  display: flex;
+  #Previews{
+    display: flex;
+    position: relative;
+    #For_DeleteBtn{
+      position: absolute;
+      display: flex;
+      top: 82.5px;
+      width: 100%;
+      .js-file_group{
+        width: 100px;
+        margin-right: 10px;
+        p.js-remove{
+          width: 100px;
+          display: block;
+          margin-right: 10px;
+        }
+      }
+    }
+  }
+}
+
+#Previews2{
+  width: 100px;
+  margin-right: 10px;
 }

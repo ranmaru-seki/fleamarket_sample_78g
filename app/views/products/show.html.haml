@@ -42,11 +42,10 @@
             %span.itemtax
               = Delivery.find_by_id(@product.delivery_id).name
         - if current_user == @product.user
-          = link_to "商品の編集する", "#", class: "item-buy"
+          = link_to "商品の編集する", edit_product_path(@product.id), class: "item-buy"
         - else
-          = link_to buy_product_orders_path(@product.id), class: "item-buy"  do
-            %span.sellBtn__text 商品を購入する
-        .Explanation
+          = link_to "商品を購入する", "#", class: "item-buy"
+        .Explanation 
           = @product.item_info
         .table
           %table.table__box
@@ -85,7 +84,7 @@
                   = link_to "#{Region.find_by_id(@product.region_id).name}", "#", class: "tdlink"
               %tr
                 %th 発送日の目安
-                %td
+                %td 
                   = Day.find_by_id(@product.day_id).name
         .optional
           %ul.optional__Area

@@ -32,6 +32,8 @@ $(document).on('turbolinks:load', ()=> {
   }
   // 親カテゴリー選択後のイベント
   $('#parent_category').on('change', function(){
+    $('#children_wrapper').remove();
+    $("#For_Edit_Select").remove();
     var parentCategory = document.getElementById('parent_category').value; //選択された親カテゴリーの名前を取得
     if (parentCategory != "---"){ //親カテゴリーが初期値でないことを確認
       $.ajax({
@@ -60,6 +62,7 @@ $(document).on('turbolinks:load', ()=> {
   });
   // 子カテゴリー選択後のイベント
   $('.listing-product-detail__category').on('change', '#child_category', function(){
+    $("#For_Edit_Select").remove();
     var childId = $('#child_category option:selected').data('category'); //選択された子カテゴリーのidを取得
     if (childId != "---"){ //子カテゴリーが初期値でないことを確認
       $.ajax({
@@ -86,4 +89,5 @@ $(document).on('turbolinks:load', ()=> {
       $('#grandchildren_wrapper').remove(); //子カテゴリーが初期値になった時、孫以下を削除する
     }
   });
+
 });
