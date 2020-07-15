@@ -1,4 +1,5 @@
-$(function() {
+//$(function(){
+$(document).on('turbolinks:load', ()=> {
 // 子カテゴリーを追加するための処理です。
   function buildChildHTML(child){
     var html =`<a class="child_category show_hover" id="${child.id}"
@@ -44,7 +45,7 @@ $(function() {
   }
 
   //子カテゴリーのリストは動的に追加されたHTMLのため
-  $(document).on("mouseover", ".child_category", function () {
+  $(".children_list").on("mouseover", ".child_category", function () {
     var id = this.id
     $.ajax({
       type: 'GET',

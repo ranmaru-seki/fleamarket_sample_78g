@@ -1,7 +1,7 @@
 .topbar
   .topbar__contents
     .topbar__top
-      = image_tag "/material/logo/logo.png", class: "topbar__top--icon"
+      = link_to (image_tag "/material/logo/logo.png", class: "topbar__top--icon"), root_path
       .topbar__top--search
         = form_with class: "Form", local: true do |f|
           = f.text_field :keyword, class: 'Form__input', placeholder: 'キーワードから探す'
