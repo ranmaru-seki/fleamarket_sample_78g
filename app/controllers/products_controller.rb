@@ -2,9 +2,17 @@ class ProductsController < ApplicationController
 
   def index
     @parents = Category.where(ancestry: nil);
+    @product_array = Product.all.reverse
+    @lady_product_array = []
+    @product_array.each do |product|
+      if product.category.root.id == 1 #レディースカテゴリのid
+          @lady_product_array << product
+      end
+    end
   end
 
   def show
+    @parents = Category.where(ancestry: nil);
     @product = Product.find(params[:id])
     @image = Image.find_by(product_id: @product.id)
     @image_array = Image.where(product_id: @product.id)
