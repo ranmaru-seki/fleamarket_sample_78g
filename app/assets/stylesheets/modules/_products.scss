@@ -412,10 +412,12 @@ li {
   &__wrapper {
     margin-top: 50px;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     .Products {
       width:220px;
       background-color: white;
+      margin: 5px;
       .CategoryPic {
         width: 100%;
         height: 150px;
@@ -441,6 +443,11 @@ li {
       opacity: 0.5;
     }
   }
+}
+
+.mainCategory__wrapper {
+  width: 100vw;
+  padding: 0 200px;
 }
 
 
@@ -469,6 +476,7 @@ li {
     .Products {
       width:220px;
       background-color: white;
+      margin: 5px;
       .BrandPic {
         width: 100%;
         height: 150px;

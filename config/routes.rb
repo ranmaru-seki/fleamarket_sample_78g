@@ -29,6 +29,7 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :categories, only: [:show]
   resources :orders, only: [:new, :create]
   resources :users, only: [:new, :edit, :show]
   resources :card, only: [:new, :create, :show, :destroy] do

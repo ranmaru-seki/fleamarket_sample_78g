@@ -3,7 +3,7 @@ $(document).on('turbolinks:load', ()=> {
 // 子カテゴリーを追加するための処理です。
   function buildChildHTML(child){
     var html =`<a class="child_category show_hover" id="${child.id}"
-                href="/category/${child.id}">${child.name}</a>`;
+                href="/categories/${child.id}">${child.name}</a>`;
     return html;
   }
 
@@ -40,7 +40,7 @@ $(document).on('turbolinks:load', ()=> {
   // 孫カテゴリを追加する処理、基本的に子要素と同じ
   function buildGrandChildHTML(child){
     var html =`<a class="grand_child_category show_hover" id="${child.id}"
-               href="/category/${child.id}">${child.name}</a>`;
+               href="/categories/${child.id}">${child.name}</a>`;
     return html;
   }
 
