@@ -5,7 +5,7 @@
       登録が完了しました。
     %ul.form-tag
       %li.add
-        = link_to "マイページに戻る", user_path(current_user.id), class: "token-submit"
+        = link_to "マイページに戻る", user_path(current_user.id), class: "token-submit", id: "LinkBtn"
       %li.add
-        = link_to "登録カード一覧", card_path(current_user.id), class: "token-submit"
+        = link_to "登録カード一覧", card_path(current_user.id), class: "token-submit", id: "LinkBtn"
 = render "card_footer" 
