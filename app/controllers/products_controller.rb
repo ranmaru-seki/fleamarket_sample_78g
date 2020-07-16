@@ -14,6 +14,14 @@ class ProductsController < ApplicationController
     @product_array = Product.where(category_id: @product.category_id).reverse
   end
 
+  def show_sold
+    @parents = Category.where(ancestry: nil);
+    @product = Product.find(params[:id])
+    @image = Image.find_by(product_id: @product.id)
+    @image_array = Image.where(product_id: @product.id)
+    @product_array = Product.where(category_id: @product.category_id).reverse
+  end
+
   def new
     @product = Product.new
     @product.images.new

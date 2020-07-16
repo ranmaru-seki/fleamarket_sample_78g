@@ -70,20 +70,38 @@
     新規投稿商品
   .mainCategory__wrapper
     - @product_array.first(4).each do |product|
-      = link_to product_path(product) do
-        .Products
-          = image_tag Image.find_by(product_id: product.id).src.url, class: "CategoryPic"
-          .Products__info
-            %p.name
-              = product.name
-            .price
-              .price__left
-                = product.price
-                円
-              .price__right
-                ★
-                0
-            %p.tax (税込)
+      - if product.purchase_id == nil
+        = link_to product_path(product) do
+          .Products
+            = image_tag Image.find_by(product_id: product.id).src.url, class: "CategoryPic"
+            .Products__info
+              %p.name
+                = product.name
+              .price
+                .price__left
+                  = product.price
+                  円
+                .price__right
+                  ★
+                  0
+              %p.tax (税込)
+      - else
+        = link_to show_sold_product_path(product) do
+          .Products.sold-product
+            = image_tag Image.find_by(product_id: product.id).src.url, class: "CategoryPic"
+            .Products__info
+              %p.name
+                = product.name
+              .price
+                .price__left
+                  = product.price
+                  円
+                .price__right
+                  ★
+                  0
+              %p.tax (税込)
+          .sold-char
+            SOLD
 
 .mainBrand
   .mainBrand__title
@@ -92,17 +110,35 @@
     レディース
   .mainBrand__wrapper
     - @lady_product_array.first(4).each do |product|
-      = link_to product_path(product) do
-        .Products
-          = image_tag Image.find_by(product_id: product.id).src.url, class: "BrandPic"
-          .Products__info
-            %p.name
-              = product.name
-            .price
-              .price__left
-                = product.price
-                円
-              .proce__right
-                ★
-                0
-            %p.tax (税込)
+      - if product.purchase_id == nil
+        = link_to product_path(product) do
+          .Products
+            = image_tag Image.find_by(product_id: product.id).src.url, class: "BrandPic"
+            .Products__info
+              %p.name
+                = product.name
+              .price
+                .price__left
+                  = product.price
+                  円
+                .proce__right
+                  ★
+                  0
+              %p.tax (税込)
+      - else
+        = link_to show_sold_product_path(product) do
+          .Products.sold-product
+            = image_tag Image.find_by(product_id: product.id).src.url, class: "BrandPic"
+            .Products__info
+              %p.name
+                = product.name
+              .price
+                .price__left
+                  = product.price
+                  円
+                .proce__right
+                  ★
+                  0
+              %p.tax (税込)
+          .sold-char
+            SOLD

@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-  
+
   def new
   end
 
@@ -75,7 +75,8 @@ class OrdersController < ApplicationController
       currency: 'jpy'
       )
     end
-    @orders = Order.create(user_id: current_user.id, product_id: params[:product_id])
+    order = Order.create(user_id: current_user.id, product_id: params[:product_id])
+    order.product.update(purchase_id: current_user.id)
   end
 
 end

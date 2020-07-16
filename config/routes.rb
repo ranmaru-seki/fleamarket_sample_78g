@@ -19,6 +19,7 @@ Rails.application.routes.draw do
     member do # 編集用（edit) products/editのため
       get 'get_category_children', defaults: { format: 'json' }
       get 'get_category_grandchildren', defaults: { format: 'json' }
+      get 'show_sold'
     end
     resource :orders do
       member do
