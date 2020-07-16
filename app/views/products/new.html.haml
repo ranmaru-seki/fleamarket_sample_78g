@@ -1,6 +1,6 @@
 .Window--new
   .Head
-    = image_tag '/material/logo/logo.png', alt: 'logo', class: 'logo-furima'
+    = link_to (image_tag "/material/logo/logo.png", alt: 'logo', class: "logo-furima"), root_path
   .FormBox
     = form_with model: @product, url: {controller: 'products', action: 'create' }, class:"FormBox--form", local: true do |f|
       .FormBox__ImageForm
@@ -79,6 +79,6 @@
       .FormBox__Submit
         = f.submit "出品する", class: "SubmitBtn"
       .ReturnBtn
-        = link_to "もどる", ":back", class: "backto"
+        = link_to "もどる", root_path, class: "backto"
       .Warning
         %p 禁止されている行為および出品物を必ずご確認ください。偽ブランド品や盗品物などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして加盟店規約に同意したことになります。

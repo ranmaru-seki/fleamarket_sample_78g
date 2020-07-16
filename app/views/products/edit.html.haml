@@ -1,6 +1,6 @@
 .Window--new
   .Head
-    = image_tag '/material/logo/logo.png', alt: 'logo', class: 'logo-furima'
+    = link_to (image_tag "/material/logo/logo.png", alt: 'logo', class: "logo-furima"), root_path
   .FormBox
     = form_with model: @product, url: {controller: 'products', action: 'update' }, class:"FormBox--form", local: true do |f|
       .FormBox__ImageForm
