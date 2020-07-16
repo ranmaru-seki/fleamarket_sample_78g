@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   root 'products#index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  resources :products, only: [:index, :new, :create, :show] do
+  resources :products do
     collection do # 新規用（new) products/newのため
       get 'get_category_children', defaults: { format: 'json' }
       get 'get_category_grandchildren', defaults: { format: 'json' }
