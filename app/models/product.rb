@@ -18,4 +18,10 @@ class Product < ApplicationRecord
 
   validates_associated :images
   validates :images, presence: true
+
+  def self.search(search)
+    return Product.all unless search
+    Product.where('name LIKE(?)', "%#{search}%")
+  end
+
 end
