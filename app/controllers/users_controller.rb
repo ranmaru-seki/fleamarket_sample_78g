@@ -5,6 +5,7 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+    @parents = Category.where(ancestry: nil);
   end
 
   def show
