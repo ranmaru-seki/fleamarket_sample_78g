@@ -27,6 +27,9 @@ Rails.application.routes.draw do
         post "pay"
       end
     end
+    collection do
+      get 'search'
+    end
   end
 
   resources :categories, only: [:show]

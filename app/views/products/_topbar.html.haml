@@ -3,7 +3,7 @@
     .topbar__top
       = link_to (image_tag "/material/logo/logo.png", class: "topbar__top--icon"), root_path
       .topbar__top--search
-        = form_with class: "Form", local: true do |f|
+        = form_with url: search_products_path, class: "Form", method: :get, local: true do |f|
           = f.text_field :keyword, class: 'Form__input', placeholder: 'キーワードから探す'
           = button_tag type: 'submit', class: "Form__submit" do
             = image_tag "/material/icon/icon-search 1.png", class: "search--icon"
