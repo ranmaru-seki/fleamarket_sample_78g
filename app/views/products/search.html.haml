@@ -1,0 +1,27 @@
+= render "topbar"
+.mainBrand__wrapper__Index
+  - @products.each do |product|
+    - if product.purchase_id == nil
+      = link_to product_path(product) do
+        .Products
+          = image_tag Image.find_by(product_id: product.id).src.url, class: "BrandPic"
+          .Products__info
+            %p.name
+              = product.name
+            .price
+              .price__left
+                = product.price
+                円
+              .proce__right
+                ★
+                0
+            %p.tax (税込)
+= render "footer"
+- if user_signed_in?
+  = link_to new_product_path, class: "sellBtn" do
+    %span.sellBtn__text 出品する
+    = image_tag "/material/icon/icon_camera.png", class: "sellBtn__image"
+- else 
+  = link_to new_user_session_path, class: "sellBtn" do
+    %span.sellBtn__text 出品する
+    = image_tag "/material/icon/icon_camera.png", class: "sellBtn__image"

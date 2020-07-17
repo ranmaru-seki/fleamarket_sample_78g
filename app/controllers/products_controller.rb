@@ -75,6 +75,11 @@ class ProductsController < ApplicationController
     redirect_to root_path
   end
 
+  def search
+    @parents = Category.where(ancestry: nil);
+    @products = Product.search(params[:keyword])
+  end
+
   def get_category_children
     respond_to do |format|
       format.html
