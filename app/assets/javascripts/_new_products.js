@@ -58,13 +58,16 @@ $(document).on('turbolinks:load', ()=> {
 
   // 範囲内をクリックで画像を選択
   $('.DropArea').on('click',function (event) {
+    event.stopPropagation();
+    event.preventDefault();
     $('.js-file:last').click();
     $('#LetterMessage').css("display", "none");
+    $('.js-file:last').prop('disabled', false);
   });
 
 });
 
-$(function () {
+$(document).on('turbolinks:load', ()=> {
   // 範囲内にファイルがドラッグされた場合のアクション
   $('.DropArea').on('dragenter dragover', function (event) {
     event.stopPropagation();
