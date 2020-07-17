@@ -65,8 +65,11 @@
             margin: 10px 5px 10px 0;
           }
         }
-        .credit_card_info{
+        .card_info{
           width: 60%;
+          .card_info__brand__img{
+            width: 60px;
+          }
         }
         .destroy__function{
           .destroy__function__link__btn{
@@ -81,6 +84,10 @@
       }
       .number{
         width: 100%;
+        .card_5brand{
+          width: 100%;
+          margin-top: 5px;
+        }
         .cardnumber{
           padding: 10px 16px 8px;
           border-radius: 4px;
@@ -93,15 +100,36 @@
           height: 48px;
         }
       }
-      .add{
+      .backbtn{
+        margin: 30px 0;
         .token-submit{
+          line-height: 60px;
+          display: block;
           background: #3CCACE;
           border: 1px solid #3CCACE;
-          color: #fff;
+          height: 60px;
+          width: 343px;
+          margin: 0 auto;
+          border-radius: 6px;
+          text-decoration: none;
+          color: white;
+          text-align: center;
+        }
+      }
+      .button{
+        margin: 15px 0;
+        .payment_submit{
+          line-height: 60px;
+          display: block;
+          background: #3CCACE;
+          border: 1px solid #3CCACE;
           height: 60px;
           width: 100%;
-          margin: 10px auto;
+          margin: 0 auto;
           border-radius: 6px;
+          text-decoration: none;
+          color: white;
+          text-align: center;
         }
       }
     }

@@ -7,7 +7,9 @@
       .number-details
         クレジットカード一覧
       .number-details
-        .credit_card_info
+        .card_info
+          .card_info__brand
+          = image_tag "/#{@card_src}", class: "card_info__brand__img", alt: @card_brand
           .credit_card_info__numbers
             .number
               = "**** **** **** " + @customer_card.last4
@@ -19,4 +21,6 @@
         .destroy__function
           = link_to card_path, method: :delete, class: "destroy__function__link__btn" do 
             削除する
-= render "card_footer" 
+      .backbtn
+        = link_to '戻る', :back, class: "token-submit"
+= render "card_footer"
