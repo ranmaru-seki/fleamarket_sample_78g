@@ -40,17 +40,15 @@ class CardController < ApplicationController
       @card_brand = @customer_card.brand
       case @card_brand
       when "Visa"
-        @card_src = "visa.png"
+        @card_src = "card.images/visa.gif"
       when "JCB"
-        @card_src = "jcb.png"
+        @card_src = "card.images/jcb.gif"
       when "MasterCard"
-        @card_src = "master.png"
+        @card_src = "card.images/master.gif"
       when "American Express"
-        @card_src = "amex.png"
+        @card_src = "card.images/amex.gif"
       when "Diners Club"
-        @card_src = "diners.png"
-      when "Discover"
-        @card_src = "discover.png"
+        @card_src = "card.images/diners.gif"
       end
 
       @exp_month = @customer_card.exp_month.to_s

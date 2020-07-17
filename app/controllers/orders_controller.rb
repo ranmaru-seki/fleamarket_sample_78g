@@ -10,31 +10,28 @@ class OrdersController < ApplicationController
 
   def buy
     @product = Product.find(params[:product_id])
-    @images = @product.images.all
-
+    @image = Image.find_by(product_id: @product.id)
+    @address = Address.find_by(user_id: current_user.id)
+  
     if user_signed_in?
       @user = current_user
       if @user.card.present?
         Payjp.api_key = Rails.application.credentials[:payjp][:access_key]
         @card = Card.find_by(user_id: current_user.id)
         customer = Payjp::Customer.retrieve(@card.customer_id)
-        # カスタマー情報からカードの情報を引き出す
         @customer_card = customer.cards.retrieve(@card.card_id)
-
         @card_brand = @customer_card.brand
         case @card_brand
         when "Visa"
-          @card_src = "visa.gif"
+          @card_src = "card.images/visa.gif"
         when "JCB"
-          @card_src = "jcb.gif"
+          @card_src = "card.images/jcb.gif"
         when "MasterCard"
-          @card_src = "master.png"
+          @card_src = "card.images/master.gif"
         when "American Express"
-          @card_src = "amex.gif"
+          @card_src = "card.images/amex.gif"
         when "Diners Club"
-          @card_src = "diners.gif"
-        when "Discover"
-          @card_src = "discover.gif"
+          @card_src = "card.images/diners.gif"
         end
         # viewの記述を簡略化
         ## 有効期限'月'を定義

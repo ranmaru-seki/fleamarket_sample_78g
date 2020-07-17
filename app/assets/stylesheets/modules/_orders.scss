@@ -33,7 +33,7 @@
 .Window{
   background-color: #F5F5F5;
   width: 100vw;
-  height: 1000px;
+  height: 1100px;
   .Head{
     width: 100%;
     height: 130px;
@@ -48,7 +48,7 @@
     text-align: center;
     margin: 0 auto;
     width: 700px;
-    height: 800px;
+    height: 900px;
     .Confirmation{
       @include box();
       height: 100px;
@@ -123,13 +123,37 @@
 
     }
     .Way--to--pay{
-      @include box();
-      @include description();
+      border-bottom: 1px solid #CCCCCC;
+      box-sizing: border-box;
+      display: inline-block;
+      padding: 5px;
+      text-align: center;
+      width: 380px;
+      height: 160px;
+      text-align: left;
+      font-size: 14px;
       position: relative;
       p{
-        top: 25px;
+        top: 15px;
         font-weight: 600;
         position: absolute;
+      }
+      .card_info_title{
+        position: absolute;
+        top: 40px;
+        .card_info{
+          &__brand{
+            &__img{
+              width: 60px;
+              height: 35px;
+            }
+          }
+        }
+      }
+      .edit-card{
+        position: absolute;
+        top: 20px;
+        left: 300px;
       }
       a{
         top:50px;
@@ -146,18 +170,27 @@
       }
     }
     .Place--to--deliver{
-      @include box();
-      @include description();
+      border-bottom: 1px solid #CCCCCC;
+      box-sizing: border-box;
+      display: inline-block;
+      padding: 5px;
+      width: 380px;
+      text-align: left;
+      font-size: 14px;
       position: relative;
-      height: 100px;
+      height: 130px;
+      .address_info{
+        position: absolute;
+        top: 40px;
+      }
       p{
-        top: 25px;
+        top: 15px;
         font-weight: 600;
         position: absolute;
       }
       a{
-        top:50px;
-        left: 22px;
+        top: 30px;
+        left: 300px;
         position: absolute;
         text-decoration: none;
         color: rgb(0, 149, 238);
