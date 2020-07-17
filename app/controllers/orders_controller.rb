@@ -11,10 +11,10 @@ class OrdersController < ApplicationController
   def buy
     @product = Product.find(params[:product_id])
     @image = Image.find_by(product_id: @product.id)
-    @address = Address.find_by(user_id: current_user.id)
   
     if user_signed_in?
       @user = current_user
+      @address = Address.find_by(user_id: current_user.id)
       if @user.card.present?
         Payjp.api_key = Rails.application.credentials[:payjp][:access_key]
         @card = Card.find_by(user_id: current_user.id)
