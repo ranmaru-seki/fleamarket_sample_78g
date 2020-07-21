@@ -14,17 +14,25 @@ class ProductsController < ApplicationController
   end
 
   def show
-    @parents = Category.where(ancestry: nil)
-    @image = Image.find_by(product_id: @product.id)
-    @image_array = Image.where(product_id: @product.id)
-    @product_array = Product.where(category_id: @product.category_id).reverse
+    if @product.purchase_id == nil
+      @parents = Category.where(ancestry: nil)
+      @image = Image.find_by(product_id: @product.id)
+      @image_array = Image.where(product_id: @product.id)
+      @product_array = Product.where(category_id: @product.category_id).reverse
+    else
+      redirect_to show_sold_product_path(@product.id)
+    end
   end
 
   def show_sold
-    @parents = Category.where(ancestry: nil)
-    @image = Image.find_by(product_id: @product.id)
-    @image_array = Image.where(product_id: @product.id)
-    @product_array = Product.where(category_id: @product.category_id).reverse
+    unless @product.purchase_id == nil
+      @parents = Category.where(ancestry: nil)
+      @image = Image.find_by(product_id: @product.id)
+      @image_array = Image.where(product_id: @product.id)
+      @product_array = Product.where(category_id: @product.category_id).reverse
+    else
+      redirect_to product_path(@product.id)
+    end
   end
 
   def new
