@@ -2,7 +2,9 @@ class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :show_sold, :edit, :update, :destroy]
   before_action :category_array_for_new, only: [:new, :create]
   before_action :category_array_for_edit, only: [:edit, :update]
-  
+  before_action :category_array_for_edit, only: [:edit, :update]
+  before_action :move_to_index, only: [:new, :edit, :update, :create, :destroy]
+
 
   def index
     @parents = Category.where(ancestry: nil)
@@ -132,4 +134,10 @@ class ProductsController < ApplicationController
     end
   end
 
+  def move_to_index
+    unless user_signed_in?
+      redirect_to new_user_session_path
+      flash[:alert] = "ログインして下さい"
+    end
+  end
 end
