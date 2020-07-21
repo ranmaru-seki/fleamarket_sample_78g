@@ -39,7 +39,7 @@ class OrdersController < ApplicationController
         ## 有効期限'年'を定義
         @exp_year = @customer_card.exp_year.to_s.slice(2,3)
       else
-        redirect_to product_path(@product.id)
+        redirect_to root_path
       end
     else
       # ログインしていなければ、商品の購入ができずに、ログイン画面に移動します。
