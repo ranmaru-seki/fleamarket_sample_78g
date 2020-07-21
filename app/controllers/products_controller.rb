@@ -4,6 +4,7 @@ class ProductsController < ApplicationController
   before_action :category_array_for_edit, only: [:edit, :update]
   before_action :category_array_for_edit, only: [:edit, :update]
   before_action :move_to_index, only: [:new, :edit, :update, :create, :destroy]
+  before_action :authenticate_user, only: [:edit, :update, :destroy]
 
 
   def index
@@ -138,6 +139,12 @@ class ProductsController < ApplicationController
     unless user_signed_in?
       redirect_to new_user_session_path
       flash[:alert] = "ログインして下さい"
+    end
+  end
+
+  def authenticate_user
+    if current_user.id != @product.user.id
+      redirect_to action: :index
     end
   end
 end
