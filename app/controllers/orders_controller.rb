@@ -1,4 +1,6 @@
 class OrdersController < ApplicationController
+  before_action :move_to_index, only: [:buy, :pay]
+  before_action :authenticate_user, only: [:buy, :pay]
 
   def new
   end
@@ -39,7 +41,6 @@ class OrdersController < ApplicationController
         ## 有効期限'年'を定義
         @exp_year = @customer_card.exp_year.to_s.slice(2,3)
       else
-        redirect_to root_path
       end
     else
       # ログインしていなければ、商品の購入ができずに、ログイン画面に移動します。
@@ -75,6 +76,20 @@ class OrdersController < ApplicationController
     end
     order = Order.create(user_id: current_user.id, product_id: params[:product_id])
     order.product.update(purchase_id: current_user.id)
+  end
+
+  def move_to_index
+    unless user_signed_in?
+      redirect_to new_user_session_path
+      flash[:alert] = "ログインして下さい"
+    end
+  end
+
+  def authenticate_user
+    @product = Product.find(params[:product_id])
+    if current_user.id == @product.user.id
+      redirect_to root_path
+    end
   end
 
 end
