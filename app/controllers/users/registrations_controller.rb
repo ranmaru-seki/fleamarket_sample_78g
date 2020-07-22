@@ -82,7 +82,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   protected
 
   def address_params
-    params.require(:address).permit(:for_family_name, :for_first_name, :for_family_name_kana, :for_first_name_kana, :postcode, :region_id, :city, :city_number, :remarks)
+    params.require(:address).permit(:for_family_name, :for_first_name, :for_family_name_kana, :for_first_name_kana, :postcode, :region_id, :city, :city_number, :remarks, :phone_number)
   end
   
 end
