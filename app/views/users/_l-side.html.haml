@@ -5,9 +5,12 @@
         =link_to "#",class:"mypage-nav" do
           マイページ
           %i.icon-arrow-right
+        =link_to user_products_user_path(@user), class:"mypage-nav" do
+          出品した商品一覧
+          %i.icon-arrow-right
         = link_to new_card_path, class: "mypage-nav"  do
           クレジットカードの切り替え
           %i.icon-arrow-right
         = link_to edit_user_path(current_user.id), class:"mypage-nav" do
           ログアウト
-          %i.icon-arrow-right 
+          %i.icon-arrow-right

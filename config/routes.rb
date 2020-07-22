@@ -10,13 +10,13 @@ Rails.application.routes.draw do
   root 'products#index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :products do
-    collection do # 新規用（new) products/newのため
+    collection do
       get 'get_category_children', defaults: { format: 'json' }
       get 'get_category_grandchildren', defaults: { format: 'json' }
       get 'get_toppage_children', defaults: { format: 'json' }
       get 'get_toppage_grandchildren', defaults: { format: 'json' }
     end
-    member do # 編集用（edit) products/editのため
+    member do
       get 'get_category_children', defaults: { format: 'json' }
       get 'get_category_grandchildren', defaults: { format: 'json' }
       get 'show_sold'
@@ -34,7 +34,11 @@ Rails.application.routes.draw do
 
   resources :categories, only: [:show]
   resources :orders, only: [:new, :create]
-  resources :users, only: [:new, :edit, :show]
+  resources :users, only: [:new, :edit, :show] do
+    member do
+      get 'user_products'
+    end
+  end
   resources :card, only: [:new, :create, :show, :destroy] do
   end
 end
