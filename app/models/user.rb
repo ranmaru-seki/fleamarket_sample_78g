@@ -4,8 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  validates :name, :email, :family_name, :first_name, :family_name_kana, :first_name_kana, presence: true
+  validates :name, :email, :family_name, :first_name, :family_name_kana, :first_name_kana, :year, :month, :day, presence: true
   validates :name, :email, uniqueness: true
+  validates :password,    length: { minimum: 7 } 
   has_one :address
   has_one :card, dependent: :destroy
   has_many :products

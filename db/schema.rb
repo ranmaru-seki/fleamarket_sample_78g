@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 2020_07_16_063037) do
     t.string "city", null: false
     t.string "city_number", null: false
     t.string "remarks"
-    t.integer "phone_number"
+    t.string "phone_number"
     t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -93,7 +93,6 @@ ActiveRecord::Schema.define(version: 2020_07_16_063037) do
     t.integer "year", null: false
     t.integer "month", null: false
     t.integer "day", null: false
-    t.integer "region_id"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
