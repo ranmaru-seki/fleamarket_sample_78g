@@ -35,7 +35,7 @@ FURIMAには、ログイン/ログアウト機能、商品一覧一覧ページ�
 購入済みの商品にはSOLDが書かれ、その商品を購入できないようになっています。  
 
 ## 説明文
-以下のURLは、私がフリマ開発時に担当した箇所に関しての説明文です。  
+以下のURLは、私がFURIMA開発時に担当した箇所に関しての説明文です。  
 開発環境やテスト方法に関しても記してあります。  
 https://docs.google.com/document/d/1wGReMjeFLp2qzbHAvM5mCUIK-L9TT5qKAzTOy4n6RcI/edit?usp=sharing
 
