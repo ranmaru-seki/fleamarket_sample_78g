@@ -23,6 +23,29 @@ Things you may want to cover:
 
 * ...
 
+
+[![Image from Gyazo](https://i.gyazo.com/e9b6d0879e3fca6a3c210db150533e4e.png)](https://gyazo.com/e9b6d0879e3fca6a3c210db150533e4e)  
+このアプリは、フリーマーケットのようにユーザー間で売買、商取引が行えるサービスです。
+
+## 概要
+FURIMAはメルカリやラクマのようなフリマアプリです。Ruby、Ruby on Rails、jQuery、MySQLで書かれています。    
+FURIMAには、ログイン/ログアウト機能、商品一覧一覧ページ、商品投稿機能、商品削除機能、商品編集機能、カテゴリ別検索機能、
+商品名検索機能、商品購入機能などがあります。  
+クレジットカードの情報を登録することで、商品購入できるようになります。  
+購入済みの商品にはSOLDが書かれ、その商品を購入できないようになっています。  
+
+## 説明文
+以下のURLは、私がフリマ開発時に担当した箇所に関しての説明文です。  
+開発環境やテスト方法に関しても記してあります。  
+https://docs.google.com/document/d/1wGReMjeFLp2qzbHAvM5mCUIK-L9TT5qKAzTOy4n6RcI/edit?usp=sharing
+
+## 著者
+関 嵐丸  
+E-Mail: m78.seki.ranmaru@gmail.com
+<br />
+<br />
+
+
 # DB設計
 
 ## usersテーブル
